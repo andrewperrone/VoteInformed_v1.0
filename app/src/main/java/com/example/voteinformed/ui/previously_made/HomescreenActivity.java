@@ -10,7 +10,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.voteinformed.LoginActivity;
+import com.example.voteinformed.ui.previously_made.LoginActivity;
 import com.example.voteinformed.R;
 import com.google.android.material.button.MaterialButton;
 

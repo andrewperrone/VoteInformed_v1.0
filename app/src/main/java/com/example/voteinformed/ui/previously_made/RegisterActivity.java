@@ -14,8 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.view.View;
 
-import com.example.voteinformed.HomeActivity;
-import com.example.voteinformed.LoginActivity;
+import com.example.voteinformed.ui.previously_made.HomeActivity;
+import com.example.voteinformed.ui.previously_made.LoginActivity;
 import com.example.voteinformed.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
