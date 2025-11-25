@@ -1,4 +1,4 @@
-package com.example.voteinformed.ui.previously_made;
+package com.example.voteinformed.ui.concerns;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;

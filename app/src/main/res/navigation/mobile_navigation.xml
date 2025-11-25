@@ -22,4 +22,10 @@
         android:name="com.example.voteinformed.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_home2"
+        android:name="com.example.voteinformed.ui.previously_made.HomeActivity"
+        android:label="@string/title_activity_homescreen"
+        tools:layout="@layout/activity_home" />
 </navigation>

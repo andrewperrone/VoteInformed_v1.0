@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.voteinformed.ui.previously_made.ProfileActivity;
+import com.example.voteinformed.ui.concerns.ConcernsActivity;
 import com.example.voteinformed.R;
 
 
