@@ -2,6 +2,8 @@ package com.example.voteinformed.data.database;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
+import com.example.voteinformed.data.util.Converters;
 
 import com.example.voteinformed.data.dao.Article_Dao;
 import com.example.voteinformed.data.dao.Election_Dao;
@@ -43,6 +45,7 @@ import com.example.voteinformed.data.entity.relation.Article_Politician;
         version = 1,
         exportSchema = false
 )
+@TypeConverters({Converters.class})
 public abstract class VoteInformed_Database extends RoomDatabase {
 
     public abstract User_Dao userDao();

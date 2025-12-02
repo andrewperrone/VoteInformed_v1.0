@@ -3,6 +3,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 @Entity(tableName = "politician")
 public class Politician
 {
@@ -33,13 +36,11 @@ public class Politician
     }
 
     // Getters and Setters
-    public int getPoliticianId()
-    {
+    public int getPolitician_id() {
         return politician_id;
     }
 
-    public void setPoliticianId(int politician_id)
-    {
+    public void setPolitician_id(int politician_id) {
         this.politician_id = politician_id;
     }
 
@@ -101,5 +102,30 @@ public class Politician
     public void setPolitician_location(String politician_location)
     {
         this.politician_location = politician_location;
+    }
+
+    @Override
+    public String toString() {
+        return "Politician{" +
+                "politician_id=" + politician_id +
+                ", politician_name='" + politician_name + '\'' +
+                ", politician_party='" + politician_party + '\'' +
+                ", politician_image=" + Arrays.toString(politician_image) +
+                ", politician_contact='" + politician_contact + '\'' +
+                ", politician_background='" + politician_background + '\'' +
+                ", politician_location='" + politician_location + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Politician that = (Politician) o;
+        return politician_id == that.politician_id && Objects.equals(politician_name, that.politician_name) && Objects.equals(politician_party, that.politician_party) && Objects.deepEquals(politician_image, that.politician_image) && Objects.equals(politician_contact, that.politician_contact) && Objects.equals(politician_background, that.politician_background) && Objects.equals(politician_location, that.politician_location);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(politician_id, politician_name, politician_party, Arrays.hashCode(politician_image), politician_contact, politician_background, politician_location);
     }
 }

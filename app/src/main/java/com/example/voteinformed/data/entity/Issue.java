@@ -2,6 +2,9 @@ package com.example.voteinformed.data.entity;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import java.util.Objects;
+
 @Entity
 public class Issue {
 
@@ -17,47 +20,73 @@ public class Issue {
     @ColumnInfo(name = "location")
     private String location;
 
-    public Issue (int issue_id, String title, String description, String type, String location){
-        this.issue_id = issue_id;
+    public Issue (String title, String description, String type, String location){
         this.title = title;
         this.description = description;
         this.type = type;
         this.location = location;
     }
 
-    public int getIssueId(){
+    public int getIssue_id() {
         return issue_id;
     }
-    public void setIssueId(int issue_id){
+
+    public void setIssue_id(int issue_id) {
         this.issue_id = issue_id;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return title;
     }
-    public void setTitle(){
+
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
-    public void setDescription(){
+
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getType(){
+    public String getType() {
         return type;
     }
-    public void setType(){
+
+    public void setType(String type) {
         this.type = type;
     }
 
-    public String getLocation(){
+    public String getLocation() {
         return location;
     }
-    public void setLocation(){
+
+    public void setLocation(String location) {
         this.location = location;
     }
 
+    @Override
+    public String toString() {
+        return "Issue{" +
+                "issue_id=" + issue_id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", type='" + type + '\'' +
+                ", location='" + location + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Issue issue = (Issue) o;
+        return issue_id == issue.issue_id && Objects.equals(title, issue.title) && Objects.equals(description, issue.description) && Objects.equals(type, issue.type) && Objects.equals(location, issue.location);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(issue_id, title, description, type, location);
+    }
 }
