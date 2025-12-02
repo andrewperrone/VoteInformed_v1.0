@@ -1,12 +1,12 @@
-package com.example.voteinformed.database.user;
+package com.example.voteinformed.database.politician;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import java.util.List;
+import androidx.room.Update;
 
 @Dao
-public interface User_Issue_Dao {
+public interface Politician_Issue_Dao {
 }
