@@ -6,13 +6,18 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
+
 import java.util.List;
 
 @Dao
-public interface PoliticianDao
+public interface Politician_Dao
 {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertPolitician(Politician politician);
+
+    @Update
+    void updatePolitician(Politician politician);
 
     @Delete
     void deletePolitician(Politician politician);

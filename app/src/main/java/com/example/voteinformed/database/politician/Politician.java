@@ -3,30 +3,30 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "politician_table")
+@Entity(tableName = "politician")
 public class Politician
 {
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name="politician_id")
     private int politician_id;
-
-    //@ColumnInfo(name="politician_name")
+    @ColumnInfo(name="politician_name")
     private String politician_name;
-    //@ColumnInfo(name="politician_party")
+    @ColumnInfo(name="politician_party")
     private String politician_party;
-    //@ColumnInfo(typeAffinity = ColumnInfo.BLOB)
-    //public byte[] politician_image;
-    //@ColumnInfo(name="politician_contact")
+    @ColumnInfo(name="politician_image")//(typeAffinity = ColumnInfo.BLOB)
+    public byte[] politician_image;
+    @ColumnInfo(name="politician_contact")
     private String politician_contact;
-    //@ColumnInfo(name="politician_background")
+    @ColumnInfo(name="politician_background")
     private String politician_background;
-    //@ColumnInfo(name="politician_location")
+    @ColumnInfo(name="politician_location")
     private String politician_location;
 
-    public Politician(String politician_name, String politician_party, /*byte[] politician_image,*/ String politician_contact, String politician_background, String politician_location)
+    public Politician(String politician_name, String politician_party, byte[] politician_image, String politician_contact, String politician_background, String politician_location)
     {
         this.politician_name = politician_name;
         this.politician_party = politician_party;
-        //this.politician_image = politician_image;
+        this.politician_image = politician_image;
         this.politician_contact = politician_contact;
         this.politician_background = politician_background;
         this.politician_location = politician_location;
@@ -61,6 +61,16 @@ public class Politician
     public void setPolitician_party(String politician_party)
     {
         this.politician_party = politician_party;
+    }
+
+    public byte[] getPolitician_image()
+    {
+        return politician_image;
+    }
+
+    public void setPolitician_image(byte[] politician_image)
+    {
+        this.politician_image = politician_image;
     }
 
     public String getPolitician_contact()

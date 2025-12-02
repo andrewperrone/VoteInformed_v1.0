@@ -6,7 +6,5 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import java.util.List;
-
-@Dao
-public interface User_Issue_Dao {
+public interface User_Article_Dao {
 }

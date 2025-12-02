@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.example.voteinformed.database.VoteInformed_Repository
 import com.example.voteinformed.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,11 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //------------------ DATABASE INITIALIZATION -----------------------------------------------
+        val voteInformedRepository = VoteInformed_Repository(applicationContext)
+
+        //------------------------------------------------------------------------------------------
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
