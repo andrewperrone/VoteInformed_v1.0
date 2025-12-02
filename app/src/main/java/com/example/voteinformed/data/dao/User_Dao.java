@@ -25,4 +25,9 @@ public interface User_Dao {
 
     @Query("SELECT * FROM User WHERE user_id = :id")
     User getUserById(int id);
+
+    /*@Transaction
+    @Query("SELECT * FROM User WHERE userId = :id")
+    UserWithArticles getUserWithArticles(int id);*/
+
 }
