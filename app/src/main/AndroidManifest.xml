@@ -44,6 +44,11 @@
             android:exported="false"
             android:theme="@style/Theme.VoteInformed.NoActionBar" />
         <activity
+            android:name=".ui.previously_made.PersonalInfoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.VoteInformed.NoActionBar" />
+        <activity
             android:name=".ui.previously_made.PoliticianProfileActivity"
             android:exported="false"
             android:theme="@style/Theme.VoteInformed.NoActionBar" />
