@@ -3,14 +3,13 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-
 import java.util.Objects;
 
 @Entity(tableName = "user")
 public class User {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "user_id")
-    private int userId;
+    private int user_id;
     @ColumnInfo(name = "name")
     private String name;
     @ColumnInfo(name = "email")
@@ -46,9 +45,11 @@ public class User {
     }
 
     public int getUserId() {
-        return userId;
+        return user_id;
     }
 
+    public void setUserID(int user_id) {
+        this.user_id = user_id;
     public void setUserId(int userId) {
         this.userId = userId;
     }
@@ -104,7 +105,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
+                "userId=" + user_id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
@@ -118,11 +119,11 @@ public class User {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return userId == user.userId && is_admin == user.is_admin && Objects.equals(name, user.name) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(location, user.location) && Objects.equals(preferences, user.preferences);
+        return user_id == user.user_id && is_admin == user.is_admin && Objects.equals(name, user.name) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(location, user.location) && Objects.equals(preferences, user.preferences);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, name, email, password, location, preferences, is_admin);
+        return Objects.hash(user_id, name, email, password, location, preferences, is_admin);
     }
 }
