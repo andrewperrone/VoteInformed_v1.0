@@ -1,31 +1,37 @@
-package com.example.voteinformed.database;// Politician.java - Entity that represents a politician's information
-import androidx.room.ColumnInfo;
+package com.example.voteinformed.database.politician;// Politician.java - Entity that represents a politician's information
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import java.sql.Blob;
 
 @Entity(tableName = "politician_table")
 public class Politician
 {
     @PrimaryKey(autoGenerate = true)
     private int politician_id;
+
+    @ColumnInfo(name="politician_name")
     private String politician_name;
+    @ColumnInfo(name="politician_party")
     private String politician_party;
     //@ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     //public byte[] politician_image;
+    @ColumnInfo(name="politician_contact")
     private String politician_contact;
+    @ColumnInfo(name="politician_background")
     private String politician_background;
+    @ColumnInfo(name="politician_location")
     private String politician_location;
 
-    public Politician(String politician_name, String politician_party, String politician_contact, String politician_background, String politician_location)
+    public Politician(String politician_name, String politician_party, /*byte[] politician_image,*/ String politician_contact, String politician_background, String politician_location)
     {
         this.politician_name = politician_name;
         this.politician_party = politician_party;
+        this.politician_image = politician_image;
         this.politician_contact = politician_contact;
         this.politician_background = politician_background;
         this.politician_location = politician_location;
     }
 
+    // Getters and Setters
     public int getPolitician_id()
     {
         return politician_id;

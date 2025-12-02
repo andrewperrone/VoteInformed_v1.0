@@ -1,4 +1,4 @@
-package com.example.voteinformed.database;
+package com.example.voteinformed.database.politician;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
