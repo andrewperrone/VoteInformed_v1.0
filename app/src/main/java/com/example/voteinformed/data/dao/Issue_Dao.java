@@ -1,18 +1,29 @@
 package com.example.voteinformed.data.dao;
-import androidx.room.Dao;
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.Update;
 
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+import androidx.room.Delete;
 import com.example.voteinformed.data.entity.Issue;
+import java.util.List;
 
 @Dao
 public interface Issue_Dao {
 
     @Insert
-    Long insertIssue(Issue issue);
+    void insert(Issue issue);
+
     @Update
-    void updateIssue(Issue issue);
+    void update(Issue issue);
+
     @Delete
-    void deleteIssue(Issue issue);
+    void delete(Issue issue);
+
+    @Query("SELECT * FROM Issue")
+    List<Issue> getAllIssue();
+
+    @Query("SELECT * FROM Issue WHERE issue_id = :id")
+    Issue getIssueById(int id);
 }
+

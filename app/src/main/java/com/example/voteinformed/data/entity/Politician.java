@@ -33,12 +33,12 @@ public class Politician
     }
 
     // Getters and Setters
-    public int getPolitician_id()
+    public int getPoliticianId()
     {
         return politician_id;
     }
 
-    public void setPolitician_id(int politician_id)
+    public void setPoliticianId(int politician_id)
     {
         this.politician_id = politician_id;
     }

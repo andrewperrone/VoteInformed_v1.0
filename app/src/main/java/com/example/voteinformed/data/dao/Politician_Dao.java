@@ -1,29 +1,28 @@
 package com.example.voteinformed.data.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
-
+import androidx.room.Delete;
 import com.example.voteinformed.data.entity.Politician;
-
 import java.util.List;
 
 @Dao
-public interface Politician_Dao
-{
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertPolitician(Politician politician);
+public interface Politician_Dao {
+
+    @Insert
+    void insert(Politician politician);
 
     @Update
-    void updatePolitician(Politician politician);
+    void update(Politician politician);
 
     @Delete
-    void deletePolitician(Politician politician);
+    void delete(Politician politician);
 
-    @Query("SELECT * FROM politician ORDER BY politician_name ASC")
-    LiveData<List<Politician>> getAllPoliticians();
+    @Query("SELECT * FROM Politician")
+    List<Politician> getAllPolitician();
+
+    @Query("SELECT * FROM Politician WHERE politician_id = :id")
+    Politician getPoliticianById(int id);
 }
