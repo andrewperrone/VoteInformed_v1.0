@@ -39,8 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
         // Personal Information
         LinearLayout btnPersonalInfo = findViewById(R.id.btnPersonalInfo);
         btnPersonalInfo.setOnClickListener(v -> {
-            Toast.makeText(this, "Personal Information", Toast.LENGTH_SHORT).show();
-            // TODO: Implement personal info screen
+            startActivity(new Intent(ProfileActivity.this, PersonalInfoActivity.class));
         });
 
         // Login Security
