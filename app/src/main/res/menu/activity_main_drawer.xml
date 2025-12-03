@@ -15,6 +15,12 @@
         android:icon="@drawable/bookmark"
         android:title="Saved" />
 
+    <!-- Comparison Tool entry -->
+    <item
+        android:id="@+id/nav_comparison"
+        android:icon="@drawable/compare"
+        android:title="Comparison Tool" />
+
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/user"

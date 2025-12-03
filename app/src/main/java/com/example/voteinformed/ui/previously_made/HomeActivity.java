@@ -34,27 +34,24 @@ public class HomeActivity extends AppCompatActivity {
         // Setup header view with user info
         setupNavHeader(navView);
 
-        // Setup top-left hamburger menu button
+        // Top-left hamburger menu button
         ImageButton btnLeft = findViewById(R.id.btnLeftMenu);
         btnLeft.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 
-        // Setup top-right profile button
+        // Top-right profile button
         ImageButton btnRight = findViewById(R.id.btnRightMenu);
         btnRight.setOnClickListener(v ->
                 startActivity(new Intent(HomeActivity.this, ProfileActivity.class)));
 
-        // Setup "Voice Concerns" button
+        // "Voice Concerns" button
         Button voiceConcerns = findViewById(R.id.btnVoiceConcerns);
         voiceConcerns.setOnClickListener(v ->
                 startActivity(new Intent(HomeActivity.this, ConcernsActivity.class)));
 
-        // Setup navigation menu item clicks
+        // Navigation menu item clicks
         setupNavMenu(navView);
     }
 
-    /**
-     * Populate the navigation header with user info
-     */
     private void setupNavHeader(NavigationView navView) {
         if (navView.getHeaderCount() > 0) {
             android.view.View headerView = navView.getHeaderView(0);
@@ -62,32 +59,26 @@ public class HomeActivity extends AppCompatActivity {
             TextView userName = headerView.findViewById(R.id.user_name);
             TextView userEmail = headerView.findViewById(R.id.user_email);
 
-            // Hardcoded user info for now
             userName.setText("John Doe");
             userEmail.setText("john.doe@example.com");
-            // TODO: Load real user image if available
         }
     }
 
-    /**
-     * Handle navigation menu item clicks
-     */
     private void setupNavMenu(NavigationView navView) {
         navView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
 
             if (id == R.id.nav_home) {
-                // Already on home page; just close drawer
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             } else if (id == R.id.nav_search) {
                 startActivity(new Intent(HomeActivity.this, SearchActivity.class));
             } else if (id == R.id.nav_saved) {
                 startActivity(new Intent(HomeActivity.this, SavedActivity.class));
+            } else if (id == R.id.nav_comparison) {
+                startActivity(new Intent(HomeActivity.this, PoliticianComparisonActivity.class));
             } else if (id == R.id.nav_profile) {
                 startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
-            } else if (id == R.id.nav_settings) {
-                // TODO: Implement SettingsActivity if needed
             } else if (id == R.id.nav_sign_out) {
                 startActivity(new Intent(HomeActivity.this, HomescreenActivity.class));
                 finish();
@@ -95,7 +86,6 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
 
-            // Close drawer after selection
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
@@ -103,12 +93,10 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Close drawer first if open, else back normally
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
     }
-
 }

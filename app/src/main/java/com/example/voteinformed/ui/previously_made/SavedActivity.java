@@ -69,13 +69,13 @@ public class SavedActivity extends AppCompatActivity {
             } else if (id == R.id.nav_search) {
                 startActivity(new Intent(SavedActivity.this, SearchActivity.class));
             } else if (id == R.id.nav_saved) {
-                // Already on Saved page; just close drawer
+                // Already on Saved page
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
+            } else if (id == R.id.nav_comparison) {
+                startActivity(new Intent(SavedActivity.this, PoliticianComparisonActivity.class));
             } else if (id == R.id.nav_profile) {
                 startActivity(new Intent(SavedActivity.this, ProfileActivity.class));
-            } else if (id == R.id.nav_settings) {
-                // TODO: Implement SettingsActivity
             } else if (id == R.id.nav_sign_out) {
                 startActivity(new Intent(SavedActivity.this, HomescreenActivity.class));
                 finish();
@@ -87,6 +87,7 @@ public class SavedActivity extends AppCompatActivity {
             return true;
         });
     }
+
 
     @Override
     public void onBackPressed() {
