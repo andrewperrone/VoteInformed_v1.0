@@ -175,12 +175,36 @@ public class VoteInformed_Repository {
         });
     }
 
+    public interface RegisterCallback{
+        void onResult(boolean success, boolean emailAlreadyExists);
+    }
+
+    public void register(String email, String password, RegisterCallback callback) {
+        executor.execute(()->
+        {
+            // check if email is taken
+            User user = userDao.getUserByEmail(email);
+            if (user != null)
+            {
+                new Handler(Looper.getMainLooper()).post(()->
+                        callback.onResult(false, true)
+                );
+            }
+            else
+            {
+                User newUser = new User(email, password);
+                userDao.insert(newUser);
+                new Handler(Looper.getMainLooper()).post(() ->
+                        callback.onResult(true, false)
+                );
+            }
+
+        });
+    }
+
     public void removeSaved(String articleId) {
         executor.execute(() -> savedArticleDao.removeSaved(articleId));
     }
-
-
-
 
     public boolean isArticleSaved(String articleId) {
         return savedArticleDao.isArticleSaved(articleId);

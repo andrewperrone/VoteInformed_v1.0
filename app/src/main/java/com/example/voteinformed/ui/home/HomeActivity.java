@@ -32,6 +32,7 @@ import com.example.voteinformed.R;
 import com.example.voteinformed.network.LegistarApiService;
 import com.example.voteinformed.network.LegislationMatter;
 import com.example.voteinformed.ui.concerns.ConcernsActivity;
+import com.example.voteinformed.ui.politician.PoliticianComparisonActivity;
 import com.google.android.material.chip.ChipGroup;
 import com.example.voteinformed.ui.user.ProfileActivity;
 import com.example.voteinformed.ui.saved.SavedActivity;
@@ -53,7 +54,6 @@ public class HomeActivity extends AppCompatActivity {
     private ChipGroup chipGroupConcerns;
     private ImageButton btnLeftMenu, btnRightMenu;
 
-    // ViewModel for managing saved articles state - ✅ INTEGRATED
     private HomeViewModel viewModel;
 
     // Track loaded articles by position for bookmark toggling
