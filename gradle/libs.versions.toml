@@ -14,8 +14,8 @@ navigationFragmentKtx = "2.9.6"
 navigationUiKtx = "2.9.6"
 roomCompiler = "2.8.3"
 roomRuntime = "2.8.3"
-roomCommonJvm = "2.8.3"
-
+roomCommonJvm = "2.8.4"
+roomRuntimeVersion = "2.8.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
