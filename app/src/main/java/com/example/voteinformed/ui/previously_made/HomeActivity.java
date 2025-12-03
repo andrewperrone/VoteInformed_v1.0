@@ -2,7 +2,6 @@ package com.example.voteinformed.ui.previously_made;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,7 +16,6 @@ import com.example.voteinformed.ui.concerns.ConcernsActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity {
-
     private DrawerLayout drawerLayout;
 
     @Override
@@ -29,6 +27,10 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navView = findViewById(R.id.nav_view);
 
+        // Highlight current item and make it non-clickable
+        navView.setCheckedItem(R.id.nav_home);
+        navView.getMenu().findItem(R.id.nav_home).setEnabled(false);
+
         // Setup header view with user info
         setupNavHeader(navView);
 
@@ -38,11 +40,13 @@ public class HomeActivity extends AppCompatActivity {
 
         // Setup top-right profile button
         ImageButton btnRight = findViewById(R.id.btnRightMenu);
-        btnRight.setOnClickListener(v -> startActivity(new Intent(HomeActivity.this, ProfileActivity.class)));
+        btnRight.setOnClickListener(v ->
+                startActivity(new Intent(HomeActivity.this, ProfileActivity.class)));
 
         // Setup "Voice Concerns" button
         Button voiceConcerns = findViewById(R.id.btnVoiceConcerns);
-        voiceConcerns.setOnClickListener(v -> startActivity(new Intent(HomeActivity.this, ConcernsActivity.class)));
+        voiceConcerns.setOnClickListener(v ->
+                startActivity(new Intent(HomeActivity.this, ConcernsActivity.class)));
 
         // Setup navigation menu item clicks
         setupNavMenu(navView);
@@ -53,7 +57,7 @@ public class HomeActivity extends AppCompatActivity {
      */
     private void setupNavHeader(NavigationView navView) {
         if (navView.getHeaderCount() > 0) {
-            View headerView = navView.getHeaderView(0);
+            android.view.View headerView = navView.getHeaderView(0);
             ImageView profileImage = headerView.findViewById(R.id.profile_image);
             TextView userName = headerView.findViewById(R.id.user_name);
             TextView userEmail = headerView.findViewById(R.id.user_email);
@@ -61,7 +65,6 @@ public class HomeActivity extends AppCompatActivity {
             // Hardcoded user info for now
             userName.setText("John Doe");
             userEmail.setText("john.doe@example.com");
-
             // TODO: Load real user image if available
         }
     }
@@ -74,7 +77,7 @@ public class HomeActivity extends AppCompatActivity {
             int id = item.getItemId();
 
             if (id == R.id.nav_home) {
-                // Already on home page, just close drawer
+                // Already on home page; just close drawer
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             } else if (id == R.id.nav_search) {
@@ -107,4 +110,5 @@ public class HomeActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
 }

@@ -15,7 +15,6 @@ import com.example.voteinformed.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class SavedActivity extends AppCompatActivity {
-
     private DrawerLayout drawerLayout;
 
     @Override
@@ -26,6 +25,10 @@ public class SavedActivity extends AppCompatActivity {
         // Initialize drawer
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navView = findViewById(R.id.nav_view);
+
+        // Highlight current item and make it non-clickable
+        navView.setCheckedItem(R.id.nav_saved);
+        navView.getMenu().findItem(R.id.nav_saved).setEnabled(false);
 
         // Setup navigation header
         setupNavHeader(navView);
@@ -66,7 +69,9 @@ public class SavedActivity extends AppCompatActivity {
             } else if (id == R.id.nav_search) {
                 startActivity(new Intent(SavedActivity.this, SearchActivity.class));
             } else if (id == R.id.nav_saved) {
-                // Already on Saved page
+                // Already on Saved page; just close drawer
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
             } else if (id == R.id.nav_profile) {
                 startActivity(new Intent(SavedActivity.this, ProfileActivity.class));
             } else if (id == R.id.nav_settings) {
@@ -91,4 +96,5 @@ public class SavedActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
 }
