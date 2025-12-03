@@ -49,6 +49,10 @@ public class VoteInformed_Repository {
         return articleDao.getAllArticles();
     }
 
+    public LiveData<Article> getArticleById(int id) {
+        return articleDao.getArticleById(id);
+    }
+
     public LiveData<List<Election>> getAllElections() {
         return electionDao.getAllElections();
     }
@@ -64,6 +68,19 @@ public class VoteInformed_Repository {
     public LiveData<List<User>> getAllUsers() {
         return userDao.getAllUsers();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Write opperators need to use executor
 
