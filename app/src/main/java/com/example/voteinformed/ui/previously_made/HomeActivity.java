@@ -48,7 +48,6 @@ public class HomeActivity extends AppCompatActivity {
     private static final String API_TOKEN =
             "Uvxb0j9syjm3aI8h46DhQvnX5skN4aSUL0x_Ee3ty9M.ew0KICAiVmVyc2lvbiI6IDEsDQogICJOYW1lIjogIk5ZQyByZWFkIHRva2VuIDIwMTcxMDI2IiwNCiAgIkRhdGUiOiAiMjAxNy0xMC0yNlQxNjoyNjo1Mi42ODM0MDYtMDU6MDAiLA0KICAiV3JpdGUiOiBmYWxzZQ0KfQ";
 
-    // Only filter by topic now, Year is always 2025
     private String selectedTopicFilter = "";
 
     @Override
@@ -60,11 +59,8 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navView = findViewById(R.id.nav_view);
 
-        // Highlight current item and make it non-clickable
         navView.setCheckedItem(R.id.nav_home);
         navView.getMenu().findItem(R.id.nav_home).setEnabled(false);
-
-        // Setup header view with user info
         setupNavHeader(navView);
 
         // Top bar buttons
@@ -87,17 +83,13 @@ public class HomeActivity extends AppCompatActivity {
         chipGroupConcerns = findViewById(R.id.chipGroupConcerns);
         setupFilters();
 
-        // Load NYC news into TOP CONCERNS grid (Current Issues left blank)
+        // Load articles and legislation
         loadHomeScreenArticles();
-
-        // Load Legistar data (2025)
         fetchLegislation();
 
         // Navigation drawer menu
         setupNavMenu(navView);
     }
-
-    // ---------------- Legistar filters + fetch ----------------
 
     private void setupFilters() {
         chipGroupConcerns.setOnCheckedChangeListener((group, checkedId) -> {
@@ -112,16 +104,14 @@ public class HomeActivity extends AppCompatActivity {
             } else if (checkedId == R.id.chipTransport) {
                 selectedTopicFilter = "and substringof('Transportation', MatterBodyName) eq true";
             } else {
-                selectedTopicFilter = ""; // All topics
+                selectedTopicFilter = "";
             }
             fetchLegislation();
         });
     }
 
-
     private void fetchLegislation() {
         String filter = "MatterIntroDate ge datetime'2025-01-01T00:00:00' " + selectedTopicFilter;
-
         LegistarApiService api = LegistarApiService.Companion.create();
 
         api.getMatters(API_TOKEN, filter, "MatterIntroDate desc", 20)
@@ -131,28 +121,22 @@ public class HomeActivity extends AppCompatActivity {
                                            @NonNull Response<List<LegislationMatter>> response) {
                         if (response.isSuccessful() && response.body() != null) {
                             List<LegislationMatter> bills = response.body();
+                            Log.d("HomeActivity", "Received " + bills.size() + " legislation items");
                             recyclerLegislation.setAdapter(new LegislationAdapter(bills));
                         } else {
-                            Toast.makeText(HomeActivity.this,
-                                    "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(HomeActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
-                    public void onFailure(@NonNull Call<List<LegislationMatter>> call,
-                                          @NonNull Throwable t) {
-                        Toast.makeText(HomeActivity.this,
-                                "Network Error", Toast.LENGTH_SHORT).show();
+                    public void onFailure(@NonNull Call<List<LegislationMatter>> call, @NonNull Throwable t) {
+                        Toast.makeText(HomeActivity.this, "Network Error", Toast.LENGTH_SHORT).show();
                         Log.e("HomeActivity", "API Failed", t);
                     }
                 });
     }
 
-    // ---------------- RecyclerView adapter ----------------
-
-    private static class LegislationAdapter
-            extends RecyclerView.Adapter<LegislationAdapter.ViewHolder> {
-
+    private static class LegislationAdapter extends RecyclerView.Adapter<LegislationAdapter.ViewHolder> {
         private final List<LegislationMatter> list;
 
         public LegislationAdapter(List<LegislationMatter> list) {
@@ -161,8 +145,7 @@ public class HomeActivity extends AppCompatActivity {
 
         @NonNull
         @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
-                                             int viewType) {
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_legislation, parent, false);
             return new ViewHolder(view);
@@ -171,11 +154,9 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             LegislationMatter item = list.get(position);
-            holder.title.setText(item.getTitle());
-            holder.status.setText(item.getStatus());
-            holder.committee.setText(
-                    item.getCommittee() != null ? item.getCommittee() : "Committee Unknown"
-            );
+            holder.title.setText(item.getTitle() != null ? item.getTitle() : "No Title");
+            holder.status.setText(item.getStatus() != null ? item.getStatus() : "Status Unknown");
+            holder.committee.setText(item.getCommittee() != null ? item.getCommittee() : "Committee Unknown");
         }
 
         @Override
@@ -195,27 +176,19 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    // ---------------- NewsAPI top concerns ----------------
-
     private void loadHomeScreenArticles() {
         NewsRepository newsRepo = new NewsRepository(this);
         newsRepo.getArticlesForConcern("New York City")
                 .enqueue(new Callback<NewsResponse>() {
                     @Override
-                    public void onResponse(Call<NewsResponse> call,
-                                           Response<NewsResponse> response) {
-                        if (response.isSuccessful()
-                                && response.body() != null
-                                && response.body().articles != null) {
-
+                    public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
+                        if (response.isSuccessful() && response.body() != null && response.body().articles != null) {
                             List<Article> articles = response.body().articles;
-
-                            // Only top 4 into TOP CONCERNS grid
                             for (int i = 0; i < Math.min(4, articles.size()); i++) {
                                 Article article = articles.get(i);
-                                ImageView imageView =
-                                        findViewById(getTopArticleImageId(i));
-                                loadArticleImage(imageView, article);
+                                ImageView imageView = findViewById(getTopArticleImageId(i));
+                                TextView titleView = findViewById(getTopArticleTitleId(i));
+                                loadArticleImage(imageView, titleView, article);
                             }
                         }
                     }
@@ -237,21 +210,33 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private void loadArticleImage(ImageView imageView, Article article) {
+    private int getTopArticleTitleId(int position) {
+        switch (position) {
+            case 0: return R.id.article1title;
+            case 1: return R.id.article2title;
+            case 2: return R.id.article3title;
+            case 3: return R.id.article4title;
+            default: return R.id.article1title;
+        }
+    }
+
+    private void loadArticleImage(ImageView imageView, TextView titleView, Article article) {
         Glide.with(this)
                 .load(article.urlToImage)
                 .placeholder(android.R.color.darker_gray)
                 .error(android.R.color.darker_gray)
                 .into(imageView);
 
-        imageView.setOnClickListener(v -> {
-            Intent intent =
-                    new Intent(Intent.ACTION_VIEW, Uri.parse(article.url));
+        if (titleView != null && article.title != null) {
+            titleView.setText(article.title);
+        }
+
+        View cardView = (View) imageView.getParent().getParent();
+        cardView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(article.url));
             startActivity(intent);
         });
     }
-
-    // ---------------- Drawer header + menu ----------------
 
     private void setupNavHeader(NavigationView navView) {
         if (navView.getHeaderCount() > 0) {
@@ -259,7 +244,6 @@ public class HomeActivity extends AppCompatActivity {
             ImageView profileImage = headerView.findViewById(R.id.profile_image);
             TextView userName = headerView.findViewById(R.id.user_name);
             TextView userEmail = headerView.findViewById(R.id.user_email);
-
             userName.setText("John Doe");
             userEmail.setText("john.doe@example.com");
         }
@@ -268,7 +252,6 @@ public class HomeActivity extends AppCompatActivity {
     private void setupNavMenu(NavigationView navView) {
         navView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
-
             if (id == R.id.nav_home) {
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
@@ -277,8 +260,7 @@ public class HomeActivity extends AppCompatActivity {
             } else if (id == R.id.nav_saved) {
                 startActivity(new Intent(HomeActivity.this, SavedActivity.class));
             } else if (id == R.id.nav_comparison) {
-                startActivity(new Intent(HomeActivity.this,
-                        PoliticianComparisonActivity.class));
+                startActivity(new Intent(HomeActivity.this, PoliticianComparisonActivity.class));
             } else if (id == R.id.nav_profile) {
                 startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
             } else if (id == R.id.nav_sign_out) {
@@ -287,7 +269,6 @@ public class HomeActivity extends AppCompatActivity {
             } else {
                 return false;
             }
-
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
