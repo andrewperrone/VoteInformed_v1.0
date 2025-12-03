@@ -45,56 +45,100 @@ public class VoteInformed_Repository {
 
     // Read opperators need to use LiveData
 
+    //getAll_
+    public LiveData<List<User>> getAllUsers() {
+        return userDao.getAllUsers();
+    }
     public LiveData<List<Article>> getAllArticles() {
         return articleDao.getAllArticles();
     }
-
-    public LiveData<Article> getArticleById(int id) {
-        return articleDao.getArticleById(id);
-    }
-
     public LiveData<List<Election>> getAllElections() {
         return electionDao.getAllElections();
     }
-
     public LiveData<List<Issue>> getAllIssues() {
         return issueDao.getAllIssues();
     }
-
     public LiveData<List<Politician>> getAllPoliticians() {
         return politicianDao.getAllPoliticians();
     }
 
-    public LiveData<List<User>> getAllUsers() {
-        return userDao.getAllUsers();
+    //get_ById
+    public LiveData<User> getUserById(int id) {
+        return userDao.getUserById(id);
+    }
+    public LiveData<Article> getArticleById(int id) {
+        return articleDao.getArticleById(id);
+    }
+    public LiveData<Election> getElectionById(int id) {
+        return electionDao.getElectionById(id);
+    }
+    public LiveData<Issue> getIssueById(int id) {
+        return issueDao.getIssueById(id);
+    }
+    public LiveData<Politician> getPoliticianById(int id) {
+        return politicianDao.getPoliticianById(id);
     }
 
+    public LiveData<List<Article>> getArticleWithIssues(int issueId) {
+        return articleDao.getArticleWithIssues(issueId);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    //Search Politician
+    public LiveData<List<Politician>> searchPoliticians(String query) {
+        return politicianDao.searchPoliticians(query);
+    }
 
     // Write opperators need to use executor
-
+    //Article
     public void insertArticle(Article article) {
         executor.execute(() -> articleDao.insert(article));
     }
-
     public void updateArticle(Article article) {
         executor.execute(() -> articleDao.update(article));
     }
-
     public void deleteArticle(Article article) {
         executor.execute(() -> articleDao.delete(article));
     }
+    //Election
+    public void insertElection(Election election) {
+        executor.execute(() -> electionDao.insert(election));
+    }
+    public void updateElection(Election election) {
+        executor.execute(() -> electionDao.update(election));
+    }
+    public void deleteElection(Election election) {
+        executor.execute(() -> electionDao.delete(election));
+    }
+    // Issue
+    public void insertIssue(Issue issue) {
+        executor.execute(() -> issueDao.insert(issue));
+    }
+    public void updateIssue(Issue issue) {
+        executor.execute(() -> issueDao.update(issue));
+    }
+    public void deleteIssue(Issue issue) {
+        executor.execute(() -> issueDao.delete(issue));
+    }
+    //Politician
+    public void insertPolitician(Politician politician) {
+        executor.execute(() -> politicianDao.insert(politician));
+    }
+    public void updatePolitician(Politician politician) {
+        executor.execute(() -> politicianDao.update(politician));
+    }
+    public void deletePolitician(Politician politician) {
+        executor.execute(() -> politicianDao.delete(politician));
+    }
 
-    // Repeat similarly for other entities...
+    //User
+    public void insertUser(User user) {
+        executor.execute(() -> userDao.insert(user));
+    }
+    public void updateUser(User user) {
+        executor.execute(() -> userDao.update(user));
+    }
+    public void deleteUser(User user) {
+        executor.execute(() -> userDao.delete(user));
+    }
+
 }
