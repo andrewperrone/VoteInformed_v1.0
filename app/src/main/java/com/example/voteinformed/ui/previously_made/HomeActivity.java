@@ -1,5 +1,13 @@
 package com.example.voteinformed.ui.previously_made;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import com.bumptech.glide.Glide;
+import android.net.Uri;
+import android.util.Log;
+import java.util.List;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -13,6 +21,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.voteinformed.R;
 import com.example.voteinformed.ui.concerns.ConcernsActivity;
+import com.example.voteinformed.Article;
+import com.example.voteinformed.NewsRepository;
+import com.example.voteinformed.NewsResponse;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -48,8 +59,63 @@ public class HomeActivity extends AppCompatActivity {
         voiceConcerns.setOnClickListener(v ->
                 startActivity(new Intent(HomeActivity.this, ConcernsActivity.class)));
 
+        // Load news articles into grids
+        loadHomeScreenArticles();
+
         // Navigation menu item clicks
         setupNavMenu(navView);
+    }
+
+    private void loadHomeScreenArticles() {
+        NewsRepository newsRepo = new NewsRepository(this);
+        newsRepo.getArticlesForConcern("New York City").enqueue(new Callback<NewsResponse>() {
+            @Override
+            public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
+                if (response.isSuccessful() && response.body() != null && response.body().articles != null) {
+                    List<Article> articles = response.body().articles;
+
+                    // Load top 4 articles into TOP CONCERNS grid
+                    for (int i = 0; i < Math.min(4, articles.size()); i++) {
+                        Article article = articles.get(i);
+                        ImageView imageView = findViewById(getTopArticleImageId(i));
+                        loadArticleImage(imageView, article);
+                    }
+
+                    // Load featured + 2 current issues (articles 4,5,6)
+                    if (articles.size() > 4) loadArticleImage(findViewById(R.id.featuredimage), articles.get(4));
+                    if (articles.size() > 5) loadArticleImage(findViewById(R.id.issue1image), articles.get(5));
+                    if (articles.size() > 6) loadArticleImage(findViewById(R.id.issue2image), articles.get(6));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<NewsResponse> call, Throwable t) {
+                Log.e("HomeActivity", "Articles load failed", t);
+            }
+        });
+    }
+
+    private int getTopArticleImageId(int position) {
+        switch (position) {
+            case 0: return R.id.article1image;
+            case 1: return R.id.article2image;
+            case 2: return R.id.article3image;
+            case 3: return R.id.article4image;
+            default: return R.id.article1image;
+        }
+    }
+
+    private void loadArticleImage(ImageView imageView, Article article) {
+        Glide.with(this)
+                .load(article.urlToImage)
+                .placeholder(android.R.color.darker_gray)
+                .error(android.R.color.darker_gray)
+                .into(imageView);
+
+        imageView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(article.url));
+            startActivity(intent);
+        });
     }
 
     private void setupNavHeader(NavigationView navView) {

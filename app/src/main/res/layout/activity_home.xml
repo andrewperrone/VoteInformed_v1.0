@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background">
+    android:background="#F5F5F5"
+    tools:context=".ui.previously_made.HomeActivity">
 
     <!-- MAIN CONTENT -->
     <ScrollView
@@ -17,17 +19,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- TOP BAR WITH LEFT & RIGHT BUTTONS -->
+            <!-- TOP BAR WITH LEFT/RIGHT BUTTONS (UNCHANGED) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/app_top_bar_background"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="8dp">
 
-                <!-- Left menu button (hamburger) -->
+                <!-- Left menu button (UNCHANGED) -->
                 <ImageButton
                     android:id="@+id/btnLeftMenu"
                     android:layout_width="32dp"
@@ -43,7 +44,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
-                <!-- Right user/profile button -->
+                <!-- Right user/profile button (UNCHANGED) -->
                 <ImageButton
                     android:id="@+id/btnRightMenu"
                     android:layout_width="32dp"
@@ -52,9 +53,10 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:scaleType="centerCrop"
                     android:src="@drawable/user" />
+
             </LinearLayout>
 
-            <!-- TITLE AND ACTION BUTTON -->
+            <!-- TITLE AND ACTION BUTTON (UNCHANGED) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +64,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <!-- Page title -->
+                <!-- Page title (UNCHANGED) -->
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -72,7 +74,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <!-- Voice Concerns Button -->
+                <!-- Voice Concerns Button (UNCHANGED) -->
                 <Button
                     android:id="@+id/btnVoiceConcerns"
                     android:layout_width="120dp"
@@ -83,9 +85,10 @@
                     android:textSize="13sp"
                     android:textStyle="bold"
                     app:strokeColor="@color/app_secondary_teal" />
+
             </LinearLayout>
 
-            <!-- GRID OF TOP ISSUES -->
+            <!-- TOP CONCERNS - Articles 2x2 -->
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,46 +98,82 @@
                 android:columnOrderPreserved="false"
                 android:rowCount="2">
 
-                <View
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/article1card"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    android:background="@drawable/rounded_box" />
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+                    <ImageView
+                        android:id="@+id/article1image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Article" />
+                </androidx.cardview.widget.CardView>
 
-                <View
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/article2card"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    android:background="@drawable/rounded_box" />
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+                    <ImageView
+                        android:id="@+id/article2image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Article" />
+                </androidx.cardview.widget.CardView>
 
-                <View
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/article3card"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    android:background="@drawable/rounded_box" />
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+                    <ImageView
+                        android:id="@+id/article3image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Article" />
+                </androidx.cardview.widget.CardView>
 
-                <View
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/article4card"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    android:background="@drawable/rounded_box" />
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+                    <ImageView
+                        android:id="@+id/article4image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Article" />
+                </androidx.cardview.widget.CardView>
             </GridLayout>
 
-            <!-- CURRENT ISSUES TITLE -->
+            <!-- CURRENT ISSUES TITLE (UNCHANGED) -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="@string/current_issues"
+                android:text="@string/currentissues"
                 android:textColor="@color/app_secondary_teal"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!-- GRID OF CURRENT ISSUES -->
+            <!-- CURRENT ISSUES - Featured + 2 small -->
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -143,34 +182,60 @@
                 android:columnOrderPreserved="false"
                 android:rowCount="2">
 
-                <!-- Large spanning issue -->
-                <View
-                    android:layout_width="363dp"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/featuredcard"
+                    android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_columnSpan="2"
+                    android:layout_columnWeight="2"
                     android:layout_margin="8dp"
-                    android:background="@drawable/rounded_box" />
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+                    <ImageView
+                        android:id="@+id/featuredimage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Featured article" />
+                </androidx.cardview.widget.CardView>
 
-                <!-- Two smaller issues -->
-                <View
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/issue1card"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    android:background="@drawable/rounded_box" />
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+                    <ImageView
+                        android:id="@+id/issue1image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Current issue" />
+                </androidx.cardview.widget.CardView>
 
-                <View
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/issue2card"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    android:background="@drawable/rounded_box" />
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+                    <ImageView
+                        android:id="@+id/issue2image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Current issue" />
+                </androidx.cardview.widget.CardView>
             </GridLayout>
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- NAVIGATION DRAWER -->
+    <!-- NAVIGATION DRAWER (UNCHANGED) -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
