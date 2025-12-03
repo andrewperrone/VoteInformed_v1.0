@@ -83,7 +83,6 @@
             </LinearLayout>
 
             <!-- TOP CONCERNS - HORIZONTAL SCROLLING ARTICLES -->
-
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,10 +103,9 @@
                         app:cardCornerRadius="12dp"
                         app:cardElevation="4dp">
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:id="@+id/article1image"
@@ -116,10 +114,23 @@
                                 android:scaleType="centerCrop"
                                 android:contentDescription="Article" />
 
+                            <ImageButton
+                                android:id="@+id/bookmark_article1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_heart_outlined"
+                                android:contentDescription="Bookmark article" />
+
                             <TextView
                                 android:id="@+id/article1title"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@id/article1image"
                                 android:layout_margin="6dp"
                                 android:text="Article Title"
                                 android:textSize="12sp"
@@ -127,7 +138,7 @@
                                 android:ellipsize="end"
                                 android:textColor="@android:color/black" />
 
-                        </LinearLayout>
+                        </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
                     <!-- Article 2 -->
@@ -139,10 +150,9 @@
                         app:cardCornerRadius="12dp"
                         app:cardElevation="4dp">
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:id="@+id/article2image"
@@ -151,10 +161,23 @@
                                 android:scaleType="centerCrop"
                                 android:contentDescription="Article" />
 
+                            <ImageButton
+                                android:id="@+id/bookmark_article2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_heart_outlined"
+                                android:contentDescription="Bookmark article" />
+
                             <TextView
                                 android:id="@+id/article2title"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@id/article2image"
                                 android:layout_margin="6dp"
                                 android:text="Article Title"
                                 android:textSize="12sp"
@@ -162,7 +185,7 @@
                                 android:ellipsize="end"
                                 android:textColor="@android:color/black" />
 
-                        </LinearLayout>
+                        </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
                     <!-- Article 3 -->
@@ -174,10 +197,9 @@
                         app:cardCornerRadius="12dp"
                         app:cardElevation="4dp">
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:id="@+id/article3image"
@@ -186,10 +208,23 @@
                                 android:scaleType="centerCrop"
                                 android:contentDescription="Article" />
 
+                            <ImageButton
+                                android:id="@+id/bookmark_article3"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_heart_outlined"
+                                android:contentDescription="Bookmark article" />
+
                             <TextView
                                 android:id="@+id/article3title"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@id/article3image"
                                 android:layout_margin="6dp"
                                 android:text="Article Title"
                                 android:textSize="12sp"
@@ -197,7 +232,7 @@
                                 android:ellipsize="end"
                                 android:textColor="@android:color/black" />
 
-                        </LinearLayout>
+                        </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
                     <!-- Article 4 -->
@@ -209,10 +244,9 @@
                         app:cardCornerRadius="12dp"
                         app:cardElevation="4dp">
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:id="@+id/article4image"
@@ -221,10 +255,23 @@
                                 android:scaleType="centerCrop"
                                 android:contentDescription="Article" />
 
+                            <ImageButton
+                                android:id="@+id/bookmark_article4"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_heart_outlined"
+                                android:contentDescription="Bookmark article" />
+
                             <TextView
                                 android:id="@+id/article4title"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@id/article4image"
                                 android:layout_margin="6dp"
                                 android:text="Article Title"
                                 android:textSize="12sp"
@@ -232,10 +279,10 @@
                                 android:ellipsize="end"
                                 android:textColor="@android:color/black" />
 
-                        </LinearLayout>
+                        </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Article 5 (Extra - will show when scrolling) -->
+                    <!-- Article 5 -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/article5card"
                         android:layout_width="160dp"
@@ -244,10 +291,9 @@
                         app:cardCornerRadius="12dp"
                         app:cardElevation="4dp">
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:id="@+id/article5image"
@@ -256,10 +302,23 @@
                                 android:scaleType="centerCrop"
                                 android:contentDescription="Article" />
 
+                            <ImageButton
+                                android:id="@+id/bookmark_article5"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_heart_outlined"
+                                android:contentDescription="Bookmark article" />
+
                             <TextView
                                 android:id="@+id/article5title"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@id/article5image"
                                 android:layout_margin="6dp"
                                 android:text="Article Title"
                                 android:textSize="12sp"
@@ -267,10 +326,10 @@
                                 android:ellipsize="end"
                                 android:textColor="@android:color/black" />
 
-                        </LinearLayout>
+                        </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Article 6 (Extra - will show when scrolling) -->
+                    <!-- Article 6 -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/article6card"
                         android:layout_width="160dp"
@@ -278,10 +337,9 @@
                         app:cardCornerRadius="12dp"
                         app:cardElevation="4dp">
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:id="@+id/article6image"
@@ -290,10 +348,23 @@
                                 android:scaleType="centerCrop"
                                 android:contentDescription="Article" />
 
+                            <ImageButton
+                                android:id="@+id/bookmark_article6"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_heart_outlined"
+                                android:contentDescription="Bookmark article" />
+
                             <TextView
                                 android:id="@+id/article6title"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@id/article6image"
                                 android:layout_margin="6dp"
                                 android:text="Article Title"
                                 android:textSize="12sp"
@@ -301,7 +372,7 @@
                                 android:ellipsize="end"
                                 android:textColor="@android:color/black" />
 
-                        </LinearLayout>
+                        </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
                 </LinearLayout>

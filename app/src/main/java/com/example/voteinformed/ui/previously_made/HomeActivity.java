@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -31,7 +33,10 @@ import com.example.voteinformed.ui.concerns.ConcernsActivity;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,6 +48,10 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerLegislation;
     private ChipGroup chipGroupConcerns;
     private ImageButton btnLeftMenu, btnRightMenu;
+
+    // Bookmark tracking for articles (using article title as key since no unique ID)
+    private Map<String, Boolean> bookmarkedArticles = new HashMap<>();
+    private Map<Integer, Article> loadedArticles = new HashMap<>(); // Track loaded articles by position
 
     // Legistar API token
     private static final String API_TOKEN =
@@ -189,8 +198,10 @@ public class HomeActivity extends AppCompatActivity {
                                 Article article = articles.get(i);
                                 ImageView imageView = findViewById(getTopArticleImageId(i));
                                 TextView titleView = findViewById(getTopArticleTitleId(i));
-                                if (imageView != null && titleView != null) {
-                                    loadArticleImage(imageView, titleView, article);
+                                ImageButton bookmarkBtn = findViewById(getBookmarkButtonId(i));
+                                if (imageView != null && titleView != null && bookmarkBtn != null) {
+                                    loadArticleImage(imageView, titleView, bookmarkBtn, article, i);
+                                    loadedArticles.put(i, article);
                                 }
                             }
                         }
@@ -227,7 +238,19 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private void loadArticleImage(ImageView imageView, TextView titleView, Article article) {
+    private int getBookmarkButtonId(int position) {
+        switch (position) {
+            case 0: return R.id.bookmark_article1;
+            case 1: return R.id.bookmark_article2;
+            case 2: return R.id.bookmark_article3;
+            case 3: return R.id.bookmark_article4;
+            case 4: return R.id.bookmark_article5;
+            case 5: return R.id.bookmark_article6;
+            default: return R.id.bookmark_article1;
+        }
+    }
+
+    private void loadArticleImage(ImageView imageView, TextView titleView, ImageButton bookmarkBtn, Article article, int position) {
         Glide.with(this)
                 .load(article.urlToImage)
                 .placeholder(android.R.color.darker_gray)
@@ -238,7 +261,10 @@ public class HomeActivity extends AppCompatActivity {
             titleView.setText(article.title);
         }
 
-        // Make entire card clickable
+        // Setup bookmark button
+        setupBookmarkButton(bookmarkBtn, article.title, position);
+
+        // Make entire card clickable (excluding bookmark button)
         View cardView = (View) imageView.getParent().getParent();
         cardView.setOnClickListener(v -> {
             if (article.url != null) {
@@ -246,6 +272,49 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void setupBookmarkButton(ImageButton bookmarkBtn, String articleTitle, int position) {
+        // Initialize bookmark state (default false)
+        if (!bookmarkedArticles.containsKey(articleTitle)) {
+            bookmarkedArticles.put(articleTitle, false);
+        }
+
+        boolean isBookmarked = bookmarkedArticles.get(articleTitle);
+        updateBookmarkAppearance(bookmarkBtn, isBookmarked);
+
+        bookmarkBtn.setOnClickListener(v -> {
+            boolean currentState = bookmarkedArticles.get(articleTitle);
+            boolean newState = !currentState;
+            bookmarkedArticles.put(articleTitle, newState);
+
+            // Animate the change
+            animateBookmark(bookmarkBtn, newState);
+            Toast.makeText(this, newState ? "Article bookmarked!" : "Bookmark removed", Toast.LENGTH_SHORT).show();
+        });
+    }
+
+    private void updateBookmarkAppearance(ImageButton bookmarkBtn, boolean isBookmarked) {
+        // Get the drawable and tint ONLY the fill layer
+        bookmarkBtn.getDrawable().setColorFilter(
+                isBookmarked ?
+                        getResources().getColor(android.R.color.holo_red_dark, null) :
+                        getResources().getColor(android.R.color.white, null),
+                android.graphics.PorterDuff.Mode.SRC_IN
+        );
+        bookmarkBtn.invalidate(); // Refresh
+    }
+
+    private void animateBookmark(ImageButton bookmarkBtn, boolean isBookmarked) {
+        Animation anim = AnimationUtils.loadAnimation(this,
+                isBookmarked ? R.anim.bookmark_down : R.anim.bookmark_up);
+
+        if (isBookmarked) {
+            bookmarkBtn.setColorFilter(getResources().getColor(android.R.color.holo_red_dark));
+        } else {
+            bookmarkBtn.setColorFilter(getResources().getColor(android.R.color.white));
+        }
+        bookmarkBtn.startAnimation(anim);
     }
 
     private void setupNavHeader(NavigationView navView) {
