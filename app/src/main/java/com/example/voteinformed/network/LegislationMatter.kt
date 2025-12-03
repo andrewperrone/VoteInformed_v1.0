@@ -8,5 +8,6 @@ data class LegislationMatter(
     @SerializedName("MatterTitle") val title: String?,
     @SerializedName("MatterStatusName") val status: String?,
     @SerializedName("MatterBodyName") val committee: String?, // The committee name
-    @SerializedName("MatterIntroDate") val date: String?
+    @SerializedName("MatterIntroDate") val date: String?,
+    @SerializedName("MatterWebLink") val webLink: String? //link to legislatures
 )

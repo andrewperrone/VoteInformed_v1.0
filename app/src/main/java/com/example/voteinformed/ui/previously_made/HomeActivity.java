@@ -22,6 +22,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.activity.OnBackPressedCallback;
 
 import com.bumptech.glide.Glide;
 import com.example.voteinformed.Article;
@@ -66,12 +67,37 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // ✅ ViewModel INITIALIZED - MVVM pattern complete
+        // ViewModel INITIALIZED - MVVM pattern complete
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         // Drawer and nav
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navView = findViewById(R.id.nav_view);
+
+        // define the back press behavior
+        OnBackPressedCallback callback = new OnBackPressedCallback(false) {
+            @Override
+            public void handleOnBackPressed() {
+                // This is only called if the drawer is open (enabled = true)
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
+        };
+
+// Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+// Toggle the callback: only intercept 'Back' when the drawer is actually open
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                callback.setEnabled(true);
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                callback.setEnabled(false);
+            }
+        });
 
         navView.setCheckedItem(R.id.nav_home);
         navView.getMenu().findItem(R.id.nav_home).setEnabled(false);
@@ -171,6 +197,21 @@ public class HomeActivity extends AppCompatActivity {
             holder.title.setText(item.getTitle() != null ? item.getTitle() : "No Title");
             holder.status.setText(item.getStatus() != null ? item.getStatus() : "Status Unknown");
             holder.committee.setText(item.getCommittee() != null ? item.getCommittee() : "Committee Unknown");
+
+            // --- NEW CLICK LISTENER CODE ---
+            holder.itemView.setOnClickListener(v -> {
+                // Get the URL from the data object
+                String url = item.getWebLink();
+
+                if (url != null && !url.isEmpty()) {
+                    // Create an Intent to open the web browser
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    v.getContext().startActivity(intent);
+                } else {
+                    // Fallback if no link is available
+                    Toast.makeText(v.getContext(), "No details link available", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         @Override
@@ -380,12 +421,4 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
 }
