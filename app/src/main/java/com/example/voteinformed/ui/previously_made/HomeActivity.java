@@ -33,7 +33,6 @@ import com.example.voteinformed.ui.concerns.ConcernsActivity;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -261,7 +260,7 @@ public class HomeActivity extends AppCompatActivity {
             titleView.setText(article.title);
         }
 
-        // Setup bookmark button
+        // Setup bookmark button - SET DEFAULT TO UNFILLED
         setupBookmarkButton(bookmarkBtn, article.title, position);
 
         // Make entire card clickable (excluding bookmark button)
@@ -295,25 +294,17 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void updateBookmarkAppearance(ImageButton bookmarkBtn, boolean isBookmarked) {
-        // Get the drawable and tint ONLY the fill layer
-        bookmarkBtn.getDrawable().setColorFilter(
-                isBookmarked ?
-                        getResources().getColor(android.R.color.holo_red_dark, null) :
-                        getResources().getColor(android.R.color.white, null),
-                android.graphics.PorterDuff.Mode.SRC_IN
-        );
-        bookmarkBtn.invalidate(); // Refresh
+        // Switch between filled and unfilled hearts
+        bookmarkBtn.setImageResource(isBookmarked ? R.drawable.ic_heart_filled : R.drawable.ic_heart_unfilled);
     }
 
     private void animateBookmark(ImageButton bookmarkBtn, boolean isBookmarked) {
+        // Set the correct image FIRST
+        bookmarkBtn.setImageResource(isBookmarked ? R.drawable.ic_heart_filled : R.drawable.ic_heart_unfilled);
+
+        // THEN animate
         Animation anim = AnimationUtils.loadAnimation(this,
                 isBookmarked ? R.anim.bookmark_down : R.anim.bookmark_up);
-
-        if (isBookmarked) {
-            bookmarkBtn.setColorFilter(getResources().getColor(android.R.color.holo_red_dark));
-        } else {
-            bookmarkBtn.setColorFilter(getResources().getColor(android.R.color.white));
-        }
         bookmarkBtn.startAnimation(anim);
     }
 

@@ -123,7 +123,7 @@
                                 android:layout_marginTop="2dp"
                                 android:layout_marginEnd="8dp"
                                 android:background="?attr/selectableItemBackgroundBorderless"
-                                android:src="@drawable/ic_heart_outlined"
+                                android:src="@drawable/ic_heart_unfilled"
                                 android:contentDescription="Bookmark article" />
 
                             <TextView
@@ -170,7 +170,7 @@
                                 android:layout_marginTop="2dp"
                                 android:layout_marginEnd="8dp"
                                 android:background="?attr/selectableItemBackgroundBorderless"
-                                android:src="@drawable/ic_heart_outlined"
+                                android:src="@drawable/ic_heart_unfilled"
                                 android:contentDescription="Bookmark article" />
 
                             <TextView
@@ -217,7 +217,7 @@
                                 android:layout_marginTop="2dp"
                                 android:layout_marginEnd="8dp"
                                 android:background="?attr/selectableItemBackgroundBorderless"
-                                android:src="@drawable/ic_heart_outlined"
+                                android:src="@drawable/ic_heart_unfilled"
                                 android:contentDescription="Bookmark article" />
 
                             <TextView
@@ -264,7 +264,7 @@
                                 android:layout_marginTop="2dp"
                                 android:layout_marginEnd="8dp"
                                 android:background="?attr/selectableItemBackgroundBorderless"
-                                android:src="@drawable/ic_heart_outlined"
+                                android:src="@drawable/ic_heart_unfilled"
                                 android:contentDescription="Bookmark article" />
 
                             <TextView
@@ -311,7 +311,7 @@
                                 android:layout_marginTop="2dp"
                                 android:layout_marginEnd="8dp"
                                 android:background="?attr/selectableItemBackgroundBorderless"
-                                android:src="@drawable/ic_heart_outlined"
+                                android:src="@drawable/ic_heart_unfilled"
                                 android:contentDescription="Bookmark article" />
 
                             <TextView
@@ -357,7 +357,7 @@
                                 android:layout_marginTop="2dp"
                                 android:layout_marginEnd="8dp"
                                 android:background="?attr/selectableItemBackgroundBorderless"
-                                android:src="@drawable/ic_heart_outlined"
+                                android:src="@drawable/ic_heart_unfilled"
                                 android:contentDescription="Bookmark article" />
 
                             <TextView
