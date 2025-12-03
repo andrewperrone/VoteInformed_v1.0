@@ -14,6 +14,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- TOP SECTION (KEEP ORIGINAL STRUCTURE) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +29,6 @@
                 android:orientation="horizontal"
                 android:paddingHorizontal="8dp">
 
-                <!-- Left menu button (UNCHANGED) -->
                 <ImageButton
                     android:id="@+id/btnLeftMenu"
                     android:layout_width="32dp"
@@ -38,13 +38,11 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/menus" />
 
-                <!-- Spacer -->
                 <View
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
-                <!-- Right user/profile button (UNCHANGED) -->
                 <ImageButton
                     android:id="@+id/btnRightMenu"
                     android:layout_width="32dp"
@@ -53,7 +51,6 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:scaleType="centerCrop"
                     android:src="@drawable/user" />
-
             </LinearLayout>
 
             <!-- TITLE AND ACTION BUTTON (UNCHANGED) -->
@@ -64,7 +61,6 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <!-- Page title (UNCHANGED) -->
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -74,7 +70,6 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <!-- Voice Concerns Button (UNCHANGED) -->
                 <Button
                     android:id="@+id/btnVoiceConcerns"
                     android:layout_width="120dp"
@@ -85,10 +80,9 @@
                     android:textSize="13sp"
                     android:textStyle="bold"
                     app:strokeColor="@color/app_secondary_teal" />
-
             </LinearLayout>
 
-            <!-- TOP CONCERNS - Articles 2x2 -->
+            <!-- TOP CONCERNS - Articles 2x2 (REDUCED HEIGHT) -->
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,9 +95,9 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/article1card"
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+                    android:layout_margin="6dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
                     <ImageView
@@ -117,9 +111,9 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/article2card"
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+                    android:layout_margin="6dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
                     <ImageView
@@ -133,9 +127,9 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/article3card"
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+                    android:layout_margin="6dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
                     <ImageView
@@ -149,9 +143,9 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/article4card"
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+                    android:layout_margin="6dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
                     <ImageView
@@ -163,67 +157,9 @@
                 </androidx.cardview.widget.CardView>
             </GridLayout>
 
-            <!-- CURRENT ISSUES TITLE (UNCHANGED) -->
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="@string/currentissues"
-                android:textColor="@color/app_secondary_teal"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btnVoiceConcerns"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
-                android:text="Voice Your Concerns"
-                android:textColor="@android:color/white"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                app:backgroundTint="@color/app_secondary_teal"
-                app:cornerRadius="20dp" />
         </LinearLayout>
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:alignmentMode="alignMargins"
-            android:columnCount="2"
-            android:columnOrderPreserved="false"
-            android:rowCount="2">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="4dp"
-                android:background="@drawable/rounded_box" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="4dp"
-                android:background="@drawable/rounded_box" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="4dp"
-                android:background="@drawable/rounded_box" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="4dp"
-                android:background="@drawable/rounded_box" />
-        </GridLayout>
-
+        <!-- LEGISLATION SECTION (MOVED INSIDE MAIN LAYOUT - HIGHER UP) -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -236,7 +172,7 @@
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="12dp"
             android:scrollbars="none">
 
             <com.google.android.material.chip.ChipGroup
@@ -291,6 +227,7 @@
             </com.google.android.material.chip.ChipGroup>
         </HorizontalScrollView>
 
+        <!-- RECYCLERVIEW TAKES REMAINING SPACE -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerLegislation"
             android:layout_width="match_parent"
@@ -300,6 +237,7 @@
 
     </LinearLayout>
 
+    <!-- NAVIGATION DRAWER (UNCHANGED) -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"

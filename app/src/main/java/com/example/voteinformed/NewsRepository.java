@@ -19,7 +19,8 @@ public class NewsRepository {
     }
 
     public Call<NewsResponse> getArticlesForConcern(String concern) {
-        String query = "\"" + concern + "\" AND \"New York City\"";
+        // Added "politics" to get more relevant political news about the concern
+        String query = "\"" + concern + "\" AND \"New York City\" AND politics";
         String apiKey = context.getString(R.string.news_api_key);
         return apiService.getArticles(query, apiKey, "en", "popularity", 10);
     }
