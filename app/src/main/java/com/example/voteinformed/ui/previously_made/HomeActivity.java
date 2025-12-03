@@ -59,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
         voiceConcerns.setOnClickListener(v ->
                 startActivity(new Intent(HomeActivity.this, ConcernsActivity.class)));
 
-        // Load news articles into grids
+        // Load news articles into TOP CONCERNS grid only (leave Current Issues blank)
         loadHomeScreenArticles();
 
         // Navigation menu item clicks
@@ -74,17 +74,13 @@ public class HomeActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null && response.body().articles != null) {
                     List<Article> articles = response.body().articles;
 
-                    // Load top 4 articles into TOP CONCERNS grid
+                    // Load ONLY top 4 articles into TOP CONCERNS grid
+                    // Current Issues (featuredimage, issue1image, issue2image) left BLANK for another API
                     for (int i = 0; i < Math.min(4, articles.size()); i++) {
                         Article article = articles.get(i);
                         ImageView imageView = findViewById(getTopArticleImageId(i));
                         loadArticleImage(imageView, article);
                     }
-
-                    // Load featured + 2 current issues (articles 4,5,6)
-                    if (articles.size() > 4) loadArticleImage(findViewById(R.id.featuredimage), articles.get(4));
-                    if (articles.size() > 5) loadArticleImage(findViewById(R.id.issue1image), articles.get(5));
-                    if (articles.size() > 6) loadArticleImage(findViewById(R.id.issue2image), articles.get(6));
                 }
             }
 
