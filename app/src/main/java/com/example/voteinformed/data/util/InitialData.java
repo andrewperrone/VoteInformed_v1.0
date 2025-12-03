@@ -40,6 +40,15 @@ public class InitialData {
         List<Politician> list = new ArrayList<>();
 
         list.add(new Politician(
+                "Donald Trump",
+                "Republican",
+                default_image,
+                "[Contact information varies; typically through campaign or official organization websites]",
+                "Donald John Trump (born 1946) is an American politician, media personality, and businessman who served as the 45th President of the United States from 2017 to 2021. Prior to entering politics, he was a real estate developer and television personality.",
+                "The United States (Former President)"
+        ));
+
+        list.add(new Politician(
                 "Kathy Hochul",
                 "Democratic",
                 default_image,
