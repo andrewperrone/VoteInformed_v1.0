@@ -8,12 +8,14 @@ import com.example.voteinformed.data.dao.Article_Dao;
 import com.example.voteinformed.data.dao.Election_Dao;
 import com.example.voteinformed.data.dao.Issue_Dao;
 import com.example.voteinformed.data.dao.Politician_Dao;
+import com.example.voteinformed.data.dao.SavedArticle_Dao;
 import com.example.voteinformed.data.dao.User_Dao;
 import com.example.voteinformed.data.database.VoteInformed_Database;
 import com.example.voteinformed.data.entity.Article;
 import com.example.voteinformed.data.entity.Election;
 import com.example.voteinformed.data.entity.Issue;
 import com.example.voteinformed.data.entity.Politician;
+import com.example.voteinformed.data.entity.SavedArticle;
 import com.example.voteinformed.data.entity.User;
 
 import java.util.List;
@@ -30,6 +32,8 @@ public class VoteInformed_Repository {
     private final Issue_Dao issueDao;
     private final Politician_Dao politicianDao;
     private final User_Dao userDao;
+    private final SavedArticle_Dao savedArticleDao;
+
 
     public VoteInformed_Repository(Context context) {
 
@@ -41,6 +45,8 @@ public class VoteInformed_Repository {
         issueDao = voteInformed_db.issueDao();
         politicianDao = voteInformed_db.politicianDao();
         userDao = voteInformed_db.userDao();
+        savedArticleDao = voteInformed_db.savedArticleDao();
+
     }
 
     // Read opperators need to use LiveData
@@ -61,6 +67,11 @@ public class VoteInformed_Repository {
     public LiveData<List<Politician>> getAllPoliticians() {
         return politicianDao.getAllPoliticians();
     }
+    public LiveData<List<SavedArticle>> getAllSavedArticles() {
+        return savedArticleDao.getAllSaved();
+    }
+
+
 
     //get_ById
     public LiveData<User> getUserById(int id) {
@@ -82,6 +93,10 @@ public class VoteInformed_Repository {
     public LiveData<List<Article>> getArticleWithIssues(int issueId) {
         return articleDao.getArticleWithIssues(issueId);
     }
+    public void saveArticle(String articleId) {
+        executor.execute(() -> savedArticleDao.saveArticle(new SavedArticle(articleId)));
+    }
+
 
     //Search Politician
     public LiveData<List<Politician>> searchPoliticians(String query) {
@@ -141,4 +156,11 @@ public class VoteInformed_Repository {
         executor.execute(() -> userDao.delete(user));
     }
 
+    public void removeSaved(String articleId) {
+        executor.execute(() -> savedArticleDao.removeSaved(articleId));
+    }
+
+    public boolean isArticleSaved(String articleId) {
+        return savedArticleDao.isArticleSaved(articleId);
+    }
 }
