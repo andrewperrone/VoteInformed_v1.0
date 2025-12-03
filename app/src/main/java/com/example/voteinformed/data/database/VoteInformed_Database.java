@@ -24,6 +24,8 @@ import com.example.voteinformed.data.entity.relation.User_Politician;
 import com.example.voteinformed.data.entity.relation.Article_Issue;
 import com.example.voteinformed.data.entity.relation.Article_Election;
 import com.example.voteinformed.data.entity.relation.Article_Politician;
+import com.example.voteinformed.data.entity.relation.Politician_Election;
+import com.example.voteinformed.data.entity.relation.Politician_Issue;
 
 @Database(
         entities = {
@@ -40,7 +42,9 @@ import com.example.voteinformed.data.entity.relation.Article_Politician;
                 User_Politician.class,
                 Article_Issue.class,
                 Article_Election.class,
-                Article_Politician.class
+                Article_Politician.class,
+                Politician_Election.class,
+                Politician_Issue.class
         },
         version = 1,
         exportSchema = false
@@ -53,4 +57,5 @@ public abstract class VoteInformed_Database extends RoomDatabase {
     public abstract Issue_Dao issueDao();
     public abstract Election_Dao electionDao();
     public abstract Politician_Dao politicianDao();
+
 }
