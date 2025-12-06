@@ -103,7 +103,6 @@ public class PoliticianProfileActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     private void loadData(int id) {
         repository.getPoliticianById(id).observe(this, politician -> {
             if (politician != null) {
