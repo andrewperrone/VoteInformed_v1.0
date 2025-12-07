@@ -38,6 +38,7 @@ import com.example.voteinformed.ui.saved.SavedActivity;
 import com.example.voteinformed.ui.search.SearchActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.example.voteinformed.ui.user.ProfileActivity;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class ElectionsActivity extends AppCompatActivity {
 
@@ -86,6 +87,14 @@ public class ElectionsActivity extends AppCompatActivity {
         fetchUpcomingElections();
 
         searchButton.setOnClickListener(v -> searchPollSite());
+
+        TextInputEditText inputSearch = findViewById(R.id.inputSearch);
+        inputSearch.setFocusable(false);
+        inputSearch.setOnClickListener(v -> {
+            Intent intent = new Intent(ElectionsActivity.this, SearchActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void fetchUpcomingElections() {
