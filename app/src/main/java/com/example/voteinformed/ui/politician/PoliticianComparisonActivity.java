@@ -247,7 +247,7 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
         }
 
         if (currentActiveTab == tabOverview) {
-            setMetricRow(side, 1, "Office Location", politician.getPolitician_location());
+            setMetricRow(side, 1, "Background", politician.getPolitician_background());
             setMetricRow(side, 2, "Party Affiliation", politician.getPolitician_party());
             clearOtherRows(side, 1, 2);
         } else if (currentActiveTab == tabIssues) {
@@ -257,8 +257,8 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
         } else if (currentActiveTab == tabContact) {
             setMetricRow(side, 5, "Contact Info", politician.getPolitician_contact());
             setMetricRow(side, 6, "Office Address", politician.getPolitician_location());
-            setMetricRow(side, 7, "Website", politician.getPolitician_contact());
-            clearOtherRows(side, 5, 7);
+            //setMetricRow(side, 7, "Website", politician.getPolitician_contact());
+            clearOtherRows(side, 5, 6);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.voteinformed.data.entity.relation;
+package com.example.voteinformed.data.entity.relation.articlewith;
 
 import androidx.room.Embedded;
 import androidx.room.Junction;
@@ -17,7 +17,10 @@ public class ArticleWithIssues {
     @Relation(
             parentColumn = "article_id",
             entityColumn = "issue_id",
-            associateBy = @Junction(Article_Issue.class)
+            entity = Issue.class,
+            associateBy = @Junction(value = Article_Issue.class,
+                    parentColumn = "article_id",
+                    entityColumn = "issue_id")
     )
     public List<Issue> issues;
 }

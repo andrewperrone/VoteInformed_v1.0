@@ -1,4 +1,4 @@
-package com.example.voteinformed.data.entity.relation;
+package com.example.voteinformed.data.entity.relation.politicianwith;
 import androidx.room.Entity;
 
 import java.util.Objects;

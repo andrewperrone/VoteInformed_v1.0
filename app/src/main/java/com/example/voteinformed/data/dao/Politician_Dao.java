@@ -4,10 +4,14 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 import androidx.room.Delete;
 
 import com.example.voteinformed.data.entity.Politician;
+import com.example.voteinformed.data.entity.relation.politicianwith.PoliticianWithIssues;
+
+
 import java.util.List;
 
 @Dao
@@ -36,4 +40,8 @@ public interface Politician_Dao {
             "OR politician_party LIKE '%' || :query || '%') " +
             "AND (:filter IS NULL OR :filter = '' OR politician_party = :filter)")
     LiveData<List<Politician>> searchPoliticians(String query,String filter);
+
+    @Transaction
+    @Query("SELECT * FROM politician WHERE politician_id = :id")
+    public LiveData<PoliticianWithIssues> getPoliticianWithIssues(int id);>
 }

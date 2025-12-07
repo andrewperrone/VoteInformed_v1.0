@@ -1,7 +1,5 @@
-package com.example.voteinformed.data.entity.relation;
-import androidx.room.ColumnInfo;
+package com.example.voteinformed.data.entity.relation.politicianwith;
 import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 @Entity(primaryKeys = {"politician_id", "issue_id"})//(tableName = "politician_issue")
 public class Politician_Issue {

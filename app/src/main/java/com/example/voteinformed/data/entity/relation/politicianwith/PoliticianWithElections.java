@@ -1,4 +1,4 @@
-package com.example.voteinformed.data.entity.relation;
+package com.example.voteinformed.data.entity.relation.politicianwith;
 
 import androidx.room.Embedded;
 import androidx.room.Junction;
@@ -17,7 +17,10 @@ public class PoliticianWithElections {
     @Relation(
             parentColumn = "politician_id",
             entityColumn = "election_id",
-            associateBy = @Junction(Politician_Election.class)
+            entity = Election.class,
+            associateBy = @Junction(value = Politician_Election.class,
+                    parentColumn = "politician_id",
+                    entityColumn = "election_id" )
     )
     public List<Election> elections;
 }
