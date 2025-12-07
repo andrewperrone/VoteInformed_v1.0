@@ -134,9 +134,9 @@ Below will showcase important files and their description
 
 ## Contributors
 - Andrew Perrone: Project owner & original author, Database designer, GitHub manager, Project lead
-- Sarah Torres: Co author, Fullstack lead
+- Sarah Torres: Co author, Fullstack lead, and API integrator
 - Jennifer Kwon: Co author, Database designer 
-- Jeff Lin: Co author, UIUX lead
+- Jeff Lin: Co author, UIUX lead, and API integrator
 
 ## License & Acknowledgements
 
