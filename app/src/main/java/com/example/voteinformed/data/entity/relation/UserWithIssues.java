@@ -1,25 +1,25 @@
-package com.example.voteinformed.data.entity.relation.articlewith;
+package com.example.voteinformed.data.entity.relation;
 
 import androidx.room.Embedded;
 import androidx.room.Junction;
 import androidx.room.Relation;
 
-import com.example.voteinformed.data.entity.Article;
+import com.example.voteinformed.data.entity.User;
 import com.example.voteinformed.data.entity.Issue;
 
 import java.util.List;
 
-public class ArticleWithIssues {
+public class UserWithIssues {
 
     @Embedded
-    public Article article;
+    public User user;
 
     @Relation(
-            parentColumn = "article_id",
+            parentColumn = "user_id",
             entityColumn = "issue_id",
             entity = Issue.class,
-            associateBy = @Junction(value = Article_Issue.class,
-                    parentColumn = "article_id",
+            associateBy = @Junction(value = User_Issue.class,
+                    parentColumn = "user_id",
                     entityColumn = "issue_id")
     )
     public List<Issue> issues;

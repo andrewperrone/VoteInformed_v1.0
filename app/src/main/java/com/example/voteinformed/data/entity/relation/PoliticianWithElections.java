@@ -1,4 +1,4 @@
-package com.example.voteinformed.data.entity.relation.politicianwith;
+package com.example.voteinformed.data.entity.relation;
 
 import androidx.room.Embedded;
 import androidx.room.Junction;

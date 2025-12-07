@@ -1,4 +1,4 @@
-package com.example.voteinformed.data.entity.relation.articlewith;
+package com.example.voteinformed.data.entity.relation;
 
 import androidx.room.Embedded;
 import androidx.room.Junction;
@@ -9,6 +9,7 @@ import com.example.voteinformed.data.entity.Election;
 
 import java.util.List;
 
+//TODO: should have toString methods etc
 public class ArticleWithElections {
 
     @Embedded
