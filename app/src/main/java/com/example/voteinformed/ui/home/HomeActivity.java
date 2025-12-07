@@ -45,6 +45,8 @@ import com.example.voteinformed.ui.saved.SavedArticleViewModel;
 import com.example.voteinformed.ui.search.SearchActivity;
 import com.example.voteinformed.data.repository.VoteInformed_Repository;
 import com.google.android.material.navigation.NavigationView;
+import com.example.voteinformed.ui.elections.ElectionsActivity;
+import com.example.voteinformed.ui.home.HomescreenActivity;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -116,8 +118,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        navView.setCheckedItem(R.id.nav_home);
-        navView.getMenu().findItem(R.id.nav_home).setEnabled(false);
+        //navView.setCheckedItem(R.id.nav_home);
+        //navView.getMenu().findItem(R.id.nav_home).setEnabled(false);
         setupNavHeader(navView);
 
         btnLeftMenu = findViewById(R.id.btnLeftMenu);
@@ -396,19 +398,32 @@ public class HomeActivity extends AppCompatActivity {
     private void setupNavMenu(NavigationView navView) {
         navView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
-            if (id == R.id.nav_home) drawerLayout.closeDrawer(GravityCompat.START);
-            else if (id == R.id.nav_search)
-                startActivity(new Intent(HomeActivity.this, SearchActivity.class));
-            else if (id == R.id.nav_saved)
-                startActivity(new Intent(HomeActivity.this, SavedActivity.class));
-            else if (id == R.id.nav_comparison)
-                startActivity(new Intent(HomeActivity.this, PoliticianComparisonActivity.class));
-            else if (id == R.id.nav_profile)
-                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
-            else if (id == R.id.nav_sign_out) {
-                startActivity(new Intent(HomeActivity.this, HomescreenActivity.class));
-                finish();
-            } else return false;
+            Intent intent = null;
+
+            if (id == R.id.nav_elections_home) {
+                intent = new Intent(HomeActivity.this, ElectionsActivity.class);
+            } else if (id == R.id.nav_home) {
+                intent= new Intent(HomeActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            } else if (id == R.id.nav_search) {
+                intent = new Intent(HomeActivity.this, SearchActivity.class);
+            } else if (id == R.id.nav_saved) {
+                intent = new Intent(HomeActivity.this, SavedActivity.class);
+            } else if (id == R.id.nav_comparison) {
+                intent = new Intent(HomeActivity.this, PoliticianComparisonActivity.class);
+            } else if (id == R.id.nav_profile) {
+                intent = new Intent(HomeActivity.this, ProfileActivity.class);
+            } else if (id == R.id.nav_sign_out) {
+                intent = new Intent(HomeActivity.this, HomescreenActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            } else {
+                return false;
+            }
+
+            if (intent != null) {
+                startActivity(intent);
+            }
+
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });

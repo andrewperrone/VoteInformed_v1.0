@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_elections_home"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="@string/menu_elections" />
+
     <item
         android:id="@+id/nav_home"
-        android:icon="@android:drawable/ic_menu_compass"
-        android:title="Home" />
+        android:icon="@drawable/menus"
+        android:title="@string/menu_articles_legislation" />
 
     <item
         android:id="@+id/nav_search"
@@ -15,7 +21,6 @@
         android:icon="@drawable/bookmark"
         android:title="Saved" />
 
-    <!-- Comparison Tool entry -->
     <item
         android:id="@+id/nav_comparison"
         android:icon="@drawable/compare"
@@ -31,7 +36,6 @@
         android:icon="@drawable/logout"
         android:title="Sign Out" />
 
-    <!-- ✅ DEBUG - SIMPLE BOTTOM BUTTON (NO SAVED COUNT) -->
     <item
         android:id="@+id/nav_debug"
         android:icon="@android:drawable/ic_menu_info_details"

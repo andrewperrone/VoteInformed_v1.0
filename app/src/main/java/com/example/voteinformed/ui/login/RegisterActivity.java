@@ -15,6 +15,8 @@ import com.example.voteinformed.data.repository.VoteInformed_Repository;
 import com.example.voteinformed.ui.home.HomeActivity;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.example.voteinformed.ui.elections.ElectionsActivity;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -76,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                 prefs.edit().putInt("user_id", user.getUser_id()).apply();
 
                 Toast.makeText(this, "Account Created!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
+                startActivity(new Intent(RegisterActivity.this, ElectionsActivity.class));
                 finish();
             } else {
                 Toast.makeText(this, "Auto-login failed", Toast.LENGTH_SHORT).show();

@@ -18,6 +18,7 @@ import com.example.voteinformed.data.repository.VoteInformed_Repository;
 import com.example.voteinformed.ui.home.HomeActivity;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.example.voteinformed.ui.elections.ElectionsActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -80,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 // Navigate to Home
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                startActivity(new Intent(LoginActivity.this, ElectionsActivity.class));
                 finish();
             } else {
                 Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
