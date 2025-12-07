@@ -158,7 +158,14 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
 
     private void observeViewModel() {
         // get list of all politicians
-        viewModel.getAllPoliticians().observe(this, politicians -> {
+        viewModel.getAllPoliticians().observe(this, politicians -> {};
+
+
+        tabOverview.setOnClickListener(tabClick);
+        tabIssues.setOnClickListener(tabClick);
+        tabContact.setOnClickListener(tabClick);
+    }
+
     private void initViews() {
         tabOverview = findViewById(R.id.tabOverview);
         tabIssues = findViewById(R.id.tabIssues);
@@ -175,10 +182,6 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
             else if (clickedTab == tabIssues) switchTab(tabIssues, "issues");
             else if (clickedTab == tabContact) switchTab(tabContact, "contact");
         };
-
-        tabOverview.setOnClickListener(tabClick);
-        tabIssues.setOnClickListener(tabClick);
-        tabContact.setOnClickListener(tabClick);
     }
 
     private void setupInitialButtonStates() {
@@ -243,6 +246,7 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
         for (int i = 0; i < allPoliticians.size(); i++) {
             names[i] = allPoliticians.get(i).getPolitician_name();
     }
+        }
 
     private void openSearchDialog() {
         FragmentManager fm = getSupportFragmentManager();
@@ -251,16 +255,17 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
     }
 
         new AlertDialog.Builder(this)
-                .setTitle("Select Candidate")
-                .setItems(names, (dialog, which) -> {
-                    Politician selected = allPoliticians.get(which);
-                    if (isLeft) {
-                        viewModel.setLeftPolitician(selected);
-                    } else {
-                        viewModel.setRightPolitician(selected);
-                    }
-                })
-                .show();
+            .setTitle("Select Candidate")
+            .setItems(names, (dialog, which) -> {
+                Politician selected = allPoliticians.get(which);
+                if (isLeft) {
+                    viewModel.setLeftPolitician(selected);
+                } else {
+                    viewModel.setRightPolitician(selected);
+                }
+            })
+            .show();
+
     @Override
     public void onPoliticianSelected(Politician politician) {
         if (politician == null) return;
