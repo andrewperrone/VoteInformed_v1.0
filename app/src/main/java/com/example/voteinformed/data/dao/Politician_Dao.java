@@ -9,6 +9,7 @@ import androidx.room.Update;
 import androidx.room.Delete;
 
 import com.example.voteinformed.data.entity.Politician;
+import com.example.voteinformed.data.entity.relation.politicianwith.PoliticianWithElections;
 import com.example.voteinformed.data.entity.relation.politicianwith.PoliticianWithIssues;
 
 
@@ -43,5 +44,9 @@ public interface Politician_Dao {
 
     @Transaction
     @Query("SELECT * FROM politician WHERE politician_id = :id")
-    public LiveData<PoliticianWithIssues> getPoliticianWithIssues(int id);>
+    public LiveData<PoliticianWithIssues> getPoliticianWithIssues(int id);
+
+    @Transaction
+    @Query("SELECT * FROM politician WHERE politician_id = :id")
+    public LiveData<PoliticianWithElections> getPoliticianWithElections(int id);
 }

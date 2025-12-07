@@ -8,7 +8,9 @@ import androidx.room.Transaction;
 import androidx.room.Update;
 import androidx.room.Delete;
 import com.example.voteinformed.data.entity.Article;
-//import com.example.voteinformed.data.entity.Politician;
+import com.example.voteinformed.data.entity.relation.articlewith.ArticleWithElections;
+import com.example.voteinformed.data.entity.relation.articlewith.ArticleWithIssues;
+import com.example.voteinformed.data.entity.relation.articlewith.ArticleWithPoliticians;
 
 import java.util.List;
 
@@ -33,10 +35,19 @@ public interface Article_Dao {
     @Query("SELECT * FROM article")
     LiveData<List<Article>> getAllArticles();
 
-    @Transaction
-    @Query("SELECT * FROM article WHERE article_id = :article_id")
-    LiveData<List<Article>> getArticleWithIssues(int article_id);
-
-    @Query("SELECT * FROM article WHERE (article_id LIKE '%' || :query || '%' " + "AND :filter IS NULL OR :filter = '')")
+    @Query("SELECT * FROM article WHERE (article_title LIKE '%' || :query || '%' " + "AND (:filter IS NULL OR :filter = '' OR article_title = :filter))")
     LiveData<List<Article>> searchArticles(String query,String filter);
+
+    @Transaction
+    @Query("SELECT * FROM article WHERE article_id = :id")
+    LiveData<ArticleWithElections> getArticleWithElections(int id);
+
+    @Transaction
+    @Query("SELECT * FROM article WHERE article_id = :id")
+    LiveData<ArticleWithIssues> getArticleWithIssues(int id);
+
+    @Transaction
+    @Query("SELECT * FROM article WHERE article_id = :id")
+    LiveData<ArticleWithPoliticians> getArticleWithPoliticians(int id);
+
 }
