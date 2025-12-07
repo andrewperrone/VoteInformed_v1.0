@@ -26,7 +26,6 @@ import com.example.voteinformed.data.entity.Article;
 import com.example.voteinformed.data.entity.Issue;
 import com.example.voteinformed.data.entity.Politician;
 import com.example.voteinformed.data.entity.Election;
-import com.example.voteinformed.data.entity.SavedArticle;
 
 // Relations
 import com.example.voteinformed.data.entity.relation.User_Article;
@@ -38,7 +37,6 @@ import com.example.voteinformed.data.entity.relation.Article_Election;
 import com.example.voteinformed.data.entity.relation.Article_Politician;
 import com.example.voteinformed.data.entity.relation.Politician_Election;
 import com.example.voteinformed.data.entity.relation.Politician_Issue;
-import com.example.voteinformed.data.util.DatabaseClient;
 
 import java.util.concurrent.Executors;
 import com.example.voteinformed.data.util.InitialData;
