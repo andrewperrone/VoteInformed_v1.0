@@ -65,7 +65,7 @@ import com.example.voteinformed.data.util.InitialData;
                 Politician_Issue.class
         },
         version = 1,
-        exportSchema = true
+        exportSchema = false
 )
 @TypeConverters({Converters.class})
 public abstract class VoteInformed_Database extends RoomDatabase {
