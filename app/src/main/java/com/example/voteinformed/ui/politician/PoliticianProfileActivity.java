@@ -3,6 +3,7 @@ package com.example.voteinformed.ui.politician;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +37,8 @@ public class PoliticianProfileActivity extends AppCompatActivity {
     private boolean isAnimating = false;
     private VoteInformed_Repository repository;
 
+    private View fabCompare;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +64,9 @@ public class PoliticianProfileActivity extends AppCompatActivity {
     private void initViews() {
         ImageButton btnBack = findViewById(R.id.btnBackPolitician);
         btnBack.setOnClickListener(v -> finish());
+
+        fabCompare = findViewById(R.id.fabCompare);
+        fabCompare.setOnClickListener(v -> onCompareClicked());
 
         tabAbout = findViewById(R.id.tabAbout);
         tabPolicy = findViewById(R.id.tabPolicy);
@@ -89,6 +95,13 @@ public class PoliticianProfileActivity extends AppCompatActivity {
         tabPolicy.setOnClickListener(v -> switchSection(sectionPolicy, tabPolicy));
         tabContact.setOnClickListener(v -> switchSection(sectionContact, tabContact));
     }
+    private void onCompareClicked() {
+        int politicianId = getIntent().getIntExtra("politician_id", -1);
+
+        Intent intent = new Intent(this, PoliticianComparisonActivity.class);
+        intent.putExtra("politician_id", politicianId);
+        startActivity(intent);
+    }
 
     private void loadData(int id) {
         repository.getPoliticianById(id).observe(this, politician -> {
@@ -113,7 +126,8 @@ public class PoliticianProfileActivity extends AppCompatActivity {
         });
     }
 
-    // Tabs
+    // --- YOUR TAB LOGIC BELOW (UNTOUCHED) ---
+
     private void setupInitialButtonStates() {
         int blueColor = ContextCompat.getColor(this, R.color.app_primary_blue);
         int grayColor = Color.parseColor("#F5F5F5");
