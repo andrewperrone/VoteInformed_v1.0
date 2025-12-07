@@ -36,7 +36,7 @@ Core ideas:
 
 - **Andrew Perrone** — Project owner, architect, repository manager. Responsibilities: overall app architecture, database schema design, project structure, main contributor.
 - **Sarah Torres** — Fullstack lead, API integration. Responsibilities: API design and integration, backend/server glue, integration testing.
--- **Jennifer Kwon** — Database designer. Responsibilities: schema design and query optimization.
+- **Jennifer Kwon** — Database designer. Responsibilities: schema design and query optimization.
 - **Jeff Lin** — UI/UX lead and API integrator. Responsibilities: UI/UX design, RecyclerView/adapter implementations, integration with image loading.
 
 
