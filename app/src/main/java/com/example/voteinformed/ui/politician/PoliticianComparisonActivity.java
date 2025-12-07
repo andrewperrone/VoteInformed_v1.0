@@ -69,6 +69,8 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
         initDrawerMenu();
         setupUI();
         observeViewModel();
+        initViews();
+        setupInitialButtonStates();
     }
 
     private void initDrawerMenu() {
@@ -103,30 +105,6 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
         });
     }
 
-    private void setupNavHeader(NavigationView navView) {
-        if (navView.getHeaderCount() > 0) {
-            View header = navView.getHeaderView(0);
-            TextView username = header.findViewById(R.id.user_name);
-            TextView email = header.findViewById(R.id.user_email);
-
-            SharedPreferences prefs = getSharedPreferences("UserSession", Context.MODE_PRIVATE);
-            int userId = prefs.getInt("user_id", -1);
-
-            if (userId != -1) {
-                VoteInformed_Repository repo = new VoteInformed_Repository(getApplicationContext());
-                repo.getUserById(userId).observe(this, user -> {
-                    if (user != null) {
-                        username.setText(user.getName());
-                        email.setText(user.getEmail());
-                    }
-                });
-            } else {
-                username.setText("Guest");
-                email.setText("Please log in");
-            }
-        }
-    }
-
     private void setupUI() {
         // back button
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
@@ -158,12 +136,26 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
 
     private void observeViewModel() {
         // get list of all politicians
-        viewModel.getAllPoliticians().observe(this, politicians -> {};
+        viewModel.getAllPoliticians().observe(this, politicians -> {
+            if (politicians != null && !politicians.isEmpty()) {
+                allPoliticians.clear();
+                allPoliticians.addAll(politicians);
+                viewModel.setInitialPoliticians(politicians);
+            } else {
+                Toast.makeText(this, "No politicians found.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        // getLeftPolitictian and update
+        viewModel.getLeftPolitician().observe(this, politician -> {
+            updateCard(true, politician);
+        });
 
-        tabOverview.setOnClickListener(tabClick);
-        tabIssues.setOnClickListener(tabClick);
-        tabContact.setOnClickListener(tabClick);
+        // getRightPolitictian and update
+        viewModel.getRightPolitician().observe(this, politician -> {
+            updateCard(false, politician);
+        });
+
     }
 
     private void initViews() {
@@ -182,6 +174,10 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
             else if (clickedTab == tabIssues) switchTab(tabIssues, "issues");
             else if (clickedTab == tabContact) switchTab(tabContact, "contact");
         };
+
+        tabOverview.setOnClickListener(tabClick);
+        tabIssues.setOnClickListener(tabClick);
+        tabContact.setOnClickListener(tabClick);
     }
 
     private void setupInitialButtonStates() {
@@ -198,6 +194,30 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
         tabContact.setTextColor(darkText);
     }
 
+    private void setupNavHeader(NavigationView navView) {
+        if (navView.getHeaderCount() > 0) {
+            View header = navView.getHeaderView(0);
+            TextView username = header.findViewById(R.id.user_name);
+            TextView email = header.findViewById(R.id.user_email);
+
+            SharedPreferences prefs = getSharedPreferences("UserSession", Context.MODE_PRIVATE);
+            int userId = prefs.getInt("user_id", -1);
+
+            if (userId != -1) {
+                VoteInformed_Repository repo = new VoteInformed_Repository(getApplicationContext());
+                repo.getUserById(userId).observe(this, user -> {
+                    if (user != null) {
+                        username.setText(user.getName());
+                        email.setText(user.getEmail());
+                    }
+                });
+            } else {
+                username.setText("Guest");
+                email.setText("Please log in");
+            }
+        }
+    }
+
     private void switchTab(MaterialButton clickedTab, String tabType) {
         if (currentActiveTab == clickedTab || isAnimating) return;
         isAnimating = true;
@@ -211,29 +231,6 @@ public class PoliticianComparisonActivity extends AppCompatActivity implements P
 
         if (leftPolitician != null) updateCard(true, leftPolitician);
         if (rightPolitician != null) updateCard(false, rightPolitician);
-    }
-
-    private void loadPoliticians() {
-        repository.getAllPoliticians().observe(this, politicians -> {
-            if (politicians != null && !politicians.isEmpty()) {
-                allPoliticians.clear();
-                allPoliticians.addAll(politicians);
-                viewModel.setInitialPoliticians(politicians);
-                this.allPoliticians = politicians;
-            } else {
-                Toast.makeText(this, "No politicians found.", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // getLeftPolitictian and update
-        viewModel.getLeftPolitician().observe(this, politician -> {
-            updateCard(true, politician);
-        });
-
-        // getRightPolitictian and update
-        viewModel.getRightPolitician().observe(this, politician -> {
-            updateCard(false, politician);
-        });
     }
 
     private void showSelectionDialog(boolean isLeft) {
