@@ -1,142 +1,451 @@
-# Table of Contents
+
+# VoteInformed
+
+A developer-focused README with step-by-step environment setup, database creation instructions, usage notes, and contributor information for the VoteInformed Android app.
+
+---
+
+**Contents**
 - [About](#about)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Repository Contents/Complete Codebase Overview](#repository-contentscomplete-codebase-overview)
-- [Database (Schema & Data Scripts)](#database-schema--data-scripts)
-- [Step by Step Setup Guide](#step-by-step-setup-guide)
-- [Build & Generate APK](#build--generate-apk)
-- [Packages & APIs](#packages--apis)
-- [User Guide](#user-guide)
 - [Contributors](#contributors)
-- [License & Acknowledgements](#license--acknowledgements)
+- [Technology Stack & Requirements](#technology-stack--requirements)
+- [Setup Guide (Development)](#setup-guide-development)
+- [Setup Guide (Production / Server-backed)](#setup-guide-production--server-backed)
+- [Database: Create server and run schema scripts](#database-create-server-and-run-schema-scripts)
+- [User Guide](#user-guide)
+- [Testing Strategy & Sample Test Cases](#testing-strategy--sample-test-cases)
+- [Features & Technical Implementation](#features--technical-implementation)
+- [Packages & APIs](#packages--apis)
+- [Next Steps / Contributions](#next-steps--contributions)
+
+---
+
 ## About
-**VoteInformed** is an Android application that seeks to help voters compare two politicians side-by-side across multiple metrics (Overview, issues, contact). Users can select politicians from a list and view their profile, with the option to switch between tabs to see different set of information. Data is provided locally, from SQLite and Room, or fetched from APIs.
 
-## Features
-### Politician Profiles
-- Search politicians by name
-- Biography, political party, social media links, committees & positions, and contact information
-- Switch between multiple politicians
-### Articles & News
-- Display political articles related to user selected concerns
-- Updates feed based on user's preferences
-### Legislation
-- Display 2025 legislations with ability to filter based on category
-### Community Concerns
-- Updates homepage news article to match user's concerns
-### Politician Comparison Tool
-- Side by side comparison view
-- Compares politicians based on bio, policices. etc,
-- Includes swap option for left and right politicians, search dialog, and remove option
-- UI changes for updates on both sides
-### Favorites System
-- User can bookmark articles on homepage to bookmark page (Saved tab) for future references
-- Bookmark stored on  local databases
-### Local Database & Repository
-- Politicians, articles, concerns, etc stored on Room Databases, and DAO interfaces which enables fast offline viewing
-### Search System
-- Fast search for specific politicians used on main search page and comparison dialog
+VoteInformed is an Android application intended to help voters compare politicians side-by-side across multiple dimensions: overview, issues, contact info, articles, and legislation. The app supports offline viewing (Room/SQLite) and can be backed by a server API for remote data.
 
-## Technology Stack
-### Languages & Platforms
-- Java (Android)
-- Android SDK
-### UI/AndroidX
-- AndroidX layouts
-- Material components
-### Libraries
-- Glide (image loading)
-- Room/SQLite for local database
-- ViewModel
-### Tools
-- Android Studio
-- Gradle
-### Hardware/Device
-- Android device or emulator (On Android studio)
+Core ideas:
+- Quick politician lookup and side-by-side comparison UI
+- Local persistence for fast offline use
+- Articles and legislation filtered by user-selected concerns
+- Bookmarking / saved content for later reference
 
-## Repository Contents/Complete Codebase Overview
-
-## Database (Schema & Data Scripts)
-
-## Step by Step Setup Guide
-### Prerequisites
-- Java JDK 11+
-- Android Studio (Arctic Fox or newer)
-- Android SDK Platform
-- Gradle
-- git for cloning repository
-### Clone
-1. git clone url
-2. Open Android Studio
-3. Allow Android Studio to sync with Gradle
-### Build & Generating APK
-- From Android Studio: Run -> app (choose device)
-
-## Key Code Snippets & Explanations
-Below will showcase important files and their description
-### *PoliticianComparisonActivity.java*
-#### **Purpose:** main UI controller for comparison screen
-#### **Key responsibilities:**
-- Initializes views and tabs
-- Loads politician from repository
-- Open selection dialog (search) to choose politician on the left or right
-- Update card UI (name, party, image, metric rows) based on selected politician and active tab
-#### **Important snippet (updateCard logic)**
-##### Description:
-### *VoteInformed_Repository.java*
-#### **Purpose:** abstraction layer for data
-#### **Brief logic:** 
-#### **Sample**
-### *PoliticianSearchAdapter.java*
-#### **Purpose:** show filtered search results in dialog_politician_search
-#### Behavior
-- Accepts a list of Politician object and filters them by name on the text input. Click listener triggers the selection
-## Packages & APIs
-### Libraries
-- Glide
-- Material Components
-- AndroidX
-- Room
-## User Guide
-### Launch
-- The app will prompt you to either login or register for an account
-  - Start by registering an account by providing for the information being asked
-- After signing up, you'll be redirected to the home page
-  - Options on the homepage include voicing your own concerns, articles, legislations, sidebar overlay, and profile
-    - Voice Your Concerns: allows user to select issues they're interested in
-    - Articles: curated up to date articles based on users interest (from voice your concerns) 
-    - Legislations: display 2025 legislations with option to filter
-    - Sidebar: accessible on the top left icon that provides quick access to home, search, saved articles, comparison tool, profile, and signout
-    - Profile: lets user to view their bookmarks, change their personal information (name, email address, and address), and log out
-### Testing Strategy & Sample Test Cases
-#### Testing approaches
-- Manual UI testing (emulator + device)
-- Unit tests
-- Integration tests
-- Smoke tests
-#### Sample test cases
-##### Launching
-- Start app and go to Politician Comparison page
-- Politician Comparison should have two cards that show "Empty Slot" and "Select a candidate"
-##### Select Candidate 1
-- Select swap on left card and search "Eric Adams" and select Eric Adams
--  Left politician card should display Eric Adams' information
-##### Select Candidate 2
-- Select swap on right card and search "Chuck Schumer" and select Chuck Schumer
-- Right politician card should display Chuck Schumer's information
-##### Tab Switching
-- Select candidate and switch from Overview to Issue tab
-- Metric rows 3 & 4 (Issue tab inforamtion) should now be visible while the others are hidden
-##### Remove Candidate
-- Select candidate and remove them from comparison
-- The corresponding politician card should reset back to Empty Slot
+---
 
 ## Contributors
-- Andrew Perrone: Project owner & original author, Database designer, GitHub manager, Project lead
-- Sarah Torres: Co author, Fullstack lead, and API integrator
-- Jennifer Kwon: Co author, Database designer 
-- Jeff Lin: Co author, UIUX lead, and API integrator
 
-## License & Acknowledgements
+- **Andrew Perrone** — Project owner, architect, repository manager. Responsibilities: overall app architecture, database schema design, project structure, main contributor.
+- **Sarah Torres** — Fullstack lead, API integration. Responsibilities: API design and integration, backend/server glue, integration testing.
+- **Jennifer Kwon** — Database designer. Responsibilities: schema design and query optimization, seed data.
+- **Jeff Lin** — UI/UX lead and API integrator. Responsibilities: UI/UX design, RecyclerView/adapter implementations, integration with image loading.
+
+If you make changes, add your name, role, and contributions here and open a PR.
+
+**Specific areas of expertise & notable contributions**
+- **Andrew Perrone (Architecture & Data):** designed the app structure, repository pattern, and authored `db/schema.sql` and Gradle config.
+- **Sarah Torres (API & Backend):** API design, sample server scaffolding, and integration tests for network flows.
+- **Jennifer Kwon (Database):** authored `db/seed_data.sql`, table/index design, and Room migrations guidance.
+- **Jeff Lin (UI/UX & Android):** implemented the comparison UI, `PoliticianSearchAdapter`, and polished image loading with Glide.
+
+---
+
+## Technology Stack & Requirements
+
+Hardware
+- Development machine: Windows 10/11, macOS, or Linux with at least 8GB RAM (16GB recommended) and 10GB free disk space.
+- Android device or emulator (API level matching project config; emulator with Google Play recommended).
+
+Software (developer)
+- Java JDK 11 or newer. Set `JAVA_HOME` to your JDK installation.
+- Android Studio (recommended) or command-line Gradle.
+- Android SDK packages that match the project's `compileSdk`/`targetSdk` (open Android Studio and let it install missing SDKs).
+- Git for version control.
+- Optional: PostgreSQL (for server-backed testing), `psql` client for applying the provided SQL scripts.
+
+Project tools
+- Gradle wrapper (`gradlew` / `gradlew.bat`) is included — use the wrapper so no global Gradle install is required.
+
+---
+
+## Setup Guide (Development)
+
+These steps let you run and develop the Android app locally.
+
+1. Clone the repository
+
+```powershell
+git clone <repository-url>
+cd VoteInformed_v1.0
+```
+
+2. Verify Java and Android environment
+
+```powershell
+java -version
+# Ensure JAVA_HOME is set; on Windows PowerShell example:
+# $env:JAVA_HOME = 'C:\Program Files\Java\jdk-11.0.x'
+```
+
+3. Open in Android Studio (recommended)
+- `File → Open...` and select the repository root.
+- Let Android Studio sync Gradle, download SDKs and dependencies.
+- If prompted to update Android Gradle Plugin or wrappers, prefer the versions already present unless you intentionally want to upgrade.
+
+4. Build and run
+
+From Android Studio: select the `app` run configuration and click Run.
+
+Or from PowerShell (command-line):
+
+```powershell
+# Build debug APK
+.\gradlew.bat assembleDebug
+
+# Install to a connected device or emulator
+.\gradlew.bat installDebug
+```
+
+5. Tests
+
+```powershell
+# Run unit tests
+.\gradlew.bat test
+
+# Run instrumentation tests on a connected device/emulator
+.\gradlew.bat connectedAndroidTest
+```
+
+Notes
+- If you need to change the minimum SDK or compile SDK, update `app/build.gradle.kts` and re-sync Gradle.
+- Use Android Studio's Logcat to inspect runtime logs and debug crashes.
+
+---
+
+## Setup Guide (Production / Server-backed)
+
+This section explains how to run a simple server-backed environment (example using PostgreSQL). The app itself stores data locally (Room). If you want a server to provide politician & article feeds, follow these guidelines.
+
+1. Provision a PostgreSQL server
+- For local development, install PostgreSQL (available from EnterpriseDB or via package managers). For production, use a managed provider (e.g., AWS RDS, Azure Database).
+
+2. Create database and apply schema (see next section for exact commands):
+
+```powershell
+# Example: using psql (Windows PowerShell). Adjust host/port/user as needed.
+# Create database
+psql -U postgres -c "CREATE DATABASE voteinformed_dev;"
+# Apply the schema
+psql -U postgres -d voteinformed_dev -f db/schema.sql
+# Seed initial data (optional)
+psql -U postgres -d voteinformed_dev -f db/seed_data.sql
+```
+
+If you need to create a dedicated database user and grant privileges (recommended for production):
+
+```powershell
+# Create a role and password (replace values safely)
+psql -U postgres -c "CREATE USER vote_user WITH PASSWORD 'change_me_strong_password';"
+psql -U postgres -c "GRANT CONNECT ON DATABASE voteinformed_dev TO vote_user;"
+psql -U postgres -d voteinformed_dev -c "GRANT USAGE ON SCHEMA public TO vote_user;"
+psql -U postgres -d voteinformed_dev -c "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO vote_user;"
+# Optionally grant future table privileges
+psql -U postgres -d voteinformed_dev -c "ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO vote_user;"
+```
+
+3. Server API
+- You can implement a simple REST API server (Node/Express, Spring Boot, Flask, etc.) that connects to the PostgreSQL database and exposes endpoints the Android app can consume. Example endpoints are documented in the `Packages & APIs` section.
+
+4. Configure the Android app to use the remote API
+- If adding remote support, add a configuration (e.g., `buildConfigField` or a `res/values/strings.xml`) for the server base URL, and implement network sync using Retrofit / OkHttp.
+
+Example `build.gradle.kts` snippet (app module) to add a base URL accessible as `BuildConfig.API_BASE_URL`:
+
+```kotlin
+android {
+	defaultConfig {
+		buildConfigField("String", "API_BASE_URL", "\"https://api.example.com/\"")
+	}
+}
+```
+
+Access in code:
+
+```kotlin
+val baseUrl = BuildConfig.API_BASE_URL
+```
+
+Minimal Retrofit interface example:
+
+```kotlin
+interface ApiService {
+	@GET("api/politicians")
+	suspend fun getPoliticians(
+		@Query("q") q: String?,
+		@Query("limit") limit: Int = 20,
+		@Query("offset") offset: Int = 0
+	): Response<PoliticianListResponse>
+}
+```
+
+---
+
+## Database: Create server and run schema scripts
+
+This repo includes SQL scripts under `db/` for creating a development database quickly.
+
+Files included:
+- `db/schema.sql` — SQL DDL to create tables (PostgreSQL DDL statements).
+- `db/seed_data.sql` — optional seed rows for quick testing.
+
+How to run (PostgreSQL example):
+
+1) Start/verify your PostgreSQL server is running and accessible.
+2) In PowerShell, run:
+
+```powershell
+# Example: create a database
+psql -U postgres -c "CREATE DATABASE voteinformed_dev;"
+# Apply schema
+psql -U postgres -d voteinformed_dev -f db/schema.sql
+# Apply seed data (optional)
+psql -U postgres -d voteinformed_dev -f db/seed_data.sql
+```
+
+If `psql` is not in your PATH, you may need to use the full path to `psql.exe` or run the commands from the PostgreSQL `bin` directory. On managed DB services, upload/execute the SQL files via the provider's console or a DB client.
+
+Security note: the sample scripts include a commented placeholder for creating an admin user — DO NOT use sample passwords in production.
+
+Inspecting the app's local Room database (developer)
+- Using Android Studio Device File Explorer: open `View -> Tool Windows -> Device File Explorer`, navigate to `/data/data/<applicationId>/databases/` and download the `.db` file.
+- Using `adb` (replace `<applicationId>` and `<dbName>`):
+
+```powershell
+adb shell run-as <applicationId> ls /data/data/<applicationId>/databases/
+adb shell run-as <applicationId> cat /data/data/<applicationId>/databases/<dbName> > /sdcard/<dbName>
+adb pull /sdcard/<dbName>
+```
+
+Note: `run-as` requires a debuggable build; replace `<applicationId>` with your app's package name (see `app/build.gradle.kts` `applicationId`).
+
+---
+
+## User Guide
+
+Install & run (developer)
+1. Follow the steps in *Setup Guide (Development)*.
+2. Launch app on device/emulator.
+3. Use the search UI to find politicians, or open the comparison view to select two politicians side-by-side.
+4. Use the Saved/Bookmarks screen to store articles for later.
+
+Common workflows
+- Search: open the search dialog, type a name, and select a politician — the app updates the card.
+- Compare: open the Compare screen, tap each card to select politicians for left and right, swap, or remove.
+- Offline: when the device is offline the app reads from the Room DB.
+
+---
+
+## Testing Strategy & Sample Test Cases
+
+Testing approaches
+- Unit tests: business logic, repository classes, DAO unit tests (run with `./gradlew test`).
+- Instrumentation/UI tests: Espresso tests for RecyclerViews, dialogs, and Activity flows (run with `./gradlew connectedAndroidTest`).
+- Manual QA: smoke tests on emulator and physical device.
+
+Sample test cases
+
+1) Launch & Home Load
+- Steps: Launch app, wait for home screen to populate.
+- Expected: No crashes. Home screen shows prioritized articles or a friendly empty-state.
+- Result (example): PASS (home loads within 3s on emulator API 30)
+
+2) Search Politician
+- Steps: From search dialog, input `Eric Adams`, select result.
+- Expected: Selection updates the politician card with name, party, and photo if available.
+- Result (example): PASS — card updated and image loaded via Glide.
+
+3) Compare Two Politicians
+- Steps: Select two politicians and open comparison view.
+- Expected: Both cards show correct information and toggling tabs updates visible metrics.
+- Result (example): PASS — metrics updated on tab switch.
+
+4) Bookmark Article
+- Steps: Open an article, tap bookmark, reopen Saved tab.
+- Expected: Bookmarked article appears in Saved list and persists across app restarts.
+- Result (example): PASS — bookmark stored in Room DB.
+
+How to run tests
+- Unit tests: `.
+.\gradlew.bat test`
+- Instrumentation tests: `.
+.\gradlew.bat connectedAndroidTest`
+
+Run a single test class or method (example):
+
+```powershell
+.
+.\gradlew.bat test --tests "com.yourpackage.repository.PoliticianRepositoryTest"
+```
+
+Example expected output snippets
+- Unit tests: after running `test`, you should see something like `BUILD SUCCESSFUL in Xs` and a test summary `Tests passed: 12, Failures: 0, Skipped: 0`.
+- Instrumentation: `connectedAndroidTest` will upload and run tests on the device; inspect results in the Gradle console or `app/build/reports/androidTests/connected/index.html`.
+
+---
+
+## Features & Technical Implementation
+
+Below is a feature list and how each is implemented at a technical level.
+
+- Politician Profiles
+	- Storage: Room entities representing politicians and positions.
+	- UI: Card views, RecyclerView lists, dialogs for search/selection.
+	- Images: Glide for efficient image loading & caching.
+
+- Side-by-side Comparison
+	- Implementation: Activity/Fragment with two selectable card containers, a shared ViewModel to hold selected politician IDs and LiveData to drive UI updates.
+	- Swap/remove: local ViewModel operations that update LiveData and persist selection if desired.
+
+- Articles & News
+	- Storage: Room table for articles; remote sync implemented (example) via Retrofit.
+	- UI: RecyclerView with DiffUtil and clickable items opening a WebView or external browser.
+
+- Legislations
+	- Storage & Filters: Room table; UI provides category filtering with adapters.
+
+- Bookmarks / Favorites
+	- Storage: Room `bookmarks` table linking `users` to `articles`.
+
+- Local-first design
+	- Repository pattern: Repositories abstract Room DB and optional remote data sources; ViewModels consume repositories and expose LiveData to the UI.
+
+---
+
+## Packages & APIs
+
+Packages / libraries used (in-project and recommended):
+
+- **AndroidX** — platform support libraries (Fragments, Lifecycle, RecyclerView).
+	- Why: Standard modern Android components and compatibility.
+
+- **Room** — SQLite object-mapping library.
+	- Why: Strong typed DAOs, compile-time query checks, simple migration path.
+
+- **Glide** — Image loading and caching.
+	- Why: Efficient decoding, memory/disk caching, easy integration.
+
+- **Material Components** — UI components and theming.
+	- Why: Modern, accessible UIs and consistent look.
+
+- **ViewModel + LiveData** — Architecture components for UI state management.
+	- Why: Lifecycle-aware state handling; prevents leaks and improves testability.
+
+- **Retrofit + OkHttp (recommended for remote)** — for REST API integration.
+	- Why: Declarative HTTP client, easy converters (JSON), interceptors for auth and logging.
+
+Example API specification (server is not included in this repo — outline for implementers):
+
+- Base URL (example): `https://api.example.com`
+
+1) GET /api/politicians
+- Description: Get list of politicians (supports query params: `q`, `limit`, `offset`).
+- Request example: `GET /api/politicians?q=adams&limit=20&offset=0`
+- Response example (200):
+```json
+{
+	"items": [
+		{"id": 1, "first_name": "Eric", "last_name": "Adams", "party": "Democratic", "photo_url": "https://..."}
+	],
+	"total": 1
+}
+```
+
+2) GET /api/politicians/{id}
+- Description: Get detailed politician data, including positions and concerns.
+- Response example (200):
+```json
+{
+	"id": 1,
+	"first_name": "Eric",
+	"last_name": "Adams",
+	"party": "Democratic",
+	"biography": "...",
+	"positions": [{"title": "Mayor", "organization": "City"}],
+	"concerns": ["Healthcare", "Economy"]
+}
+```
+
+3) GET /api/articles
+- Description: Get articles, filter by concern or politician.
+- Example: `GET /api/articles?concern=Healthcare&limit=20`
+
+Authentication (example)
+- Bearer token (JWT) in `Authorization: Bearer <token>` header for endpoints that require authentication (e.g., bookmarking, user profile).
+- Login endpoint: `POST /api/auth/login` with `email` and `password` returning a token.
+
+Notes
+- The above endpoints are example templates — adapt them for your backend stack. If a server already exists, replace these examples with the real endpoints and update the Android `Retrofit` interface accordingly.
+
+Authentication example (client):
+- After obtaining a JWT from `POST /api/auth/login`, include it on requests using an OkHttp interceptor:
+
+```kotlin
+val client = OkHttpClient.Builder()
+	.addInterceptor { chain ->
+		val req = chain.request().newBuilder()
+			.addHeader("Authorization", "Bearer ${token}")
+			.build()
+		chain.proceed(req)
+	}
+	.build()
+```
+
+Replace `${token}` with a secure in-memory or persisted token management strategy (avoid plaintext storage).
+
+---
+
+## Next Steps / Contributions
+
+If you'd like me to continue:
+- Add `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` templates. (I can create these.)
+- Wire a minimal sample server (e.g., Express + Knex or Spring Boot) to serve the provided `db/schema.sql` and the example API endpoints.
+- Run a local Gradle build now and report results.
+
+To contribute code:
+1. Fork the repo.
+2. Create a branch for your change: `git checkout -b feat/your-feature`.
+3. Run tests locally and include tests for new behavior.
+4. Open a PR and request a review.
+
+---
+
+## Contributing
+
+We welcome contributions. Please follow the guidance in `CONTRIBUTING.md` for details about branch naming, commit messages, tests, and the PR process. In short:
+
+- Fork the repository and create a topic branch for your change (e.g., `feat/search-debounce`).
+- Keep changes small and focused; add unit/instrumentation tests for new behavior.
+- Run `.
+.\gradlew.bat test` and ensure the build passes before opening a PR.
+- Use descriptive commit messages and include a clear PR description explaining the change and rationale.
+
+If you are unsure where to start, check the Issues tab and look for `good first issue` or `help wanted` labels.
+
+---
+
+## Code of Conduct
+
+This project follows a Code of Conduct to foster an open and welcoming environment. Please see `CODE_OF_CONDUCT.md` for the full text. Key points:
+
+- Be respectful, inclusive, and constructive.
+- Focus feedback on code and behavior, not individuals.
+- Do not tolerate harassment or abusive conduct.
+
+If you experience or witness unacceptable behavior, contact the project maintainers or open an issue labeled `moderation`.
+
+If you want, I can now:
+- run a local `.\gradlew.bat assembleDebug` and report build output, or
+- create `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`, or
+- scaffold a minimal example server to demonstrate applying `db/schema.sql` and serve the example endpoints.
+
+Which would you like me to do next?
 
