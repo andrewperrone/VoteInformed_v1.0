@@ -194,7 +194,6 @@
                             android:background="@android:color/transparent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/user"
-                            android:tint="@android:color/white"
                             app:shapeAppearanceOverlay="@style/CircleImage"
                             app:strokeColor="@android:color/white"
                             app:strokeWidth="1dp" />
@@ -322,7 +321,6 @@
                             android:background="@android:color/transparent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/user"
-                            android:tint="@android:color/white"
                             app:shapeAppearanceOverlay="@style/CircleImage"
                             app:strokeColor="@android:color/white"
                             app:strokeWidth="1dp" />

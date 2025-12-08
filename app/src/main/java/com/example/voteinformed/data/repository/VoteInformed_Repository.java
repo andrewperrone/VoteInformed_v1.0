@@ -221,6 +221,8 @@ public class VoteInformed_Repository {
     }
 
     //Politician With
+
+
     public LiveData<PoliticianWithIssues> getPoliticianWithIssues(int id) {
         return politicianDao.getPoliticianWithIssues(id);
     }

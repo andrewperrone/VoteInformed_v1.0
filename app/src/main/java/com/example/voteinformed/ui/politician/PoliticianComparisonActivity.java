@@ -144,7 +144,8 @@ public class PoliticianComparisonActivity extends AppCompatActivity
 
     private void openSearchDialog() {
         FragmentManager fm = getSupportFragmentManager();
-        PoliticianSearchDialog dialog = PoliticianSearchDialog.newInstance();
+        PoliticianSearchDialog dialog =
+                PoliticianSearchDialog.newInstance(true);
         dialog.show(fm, "PoliticianSearchDialog");
     }
 
@@ -196,11 +197,23 @@ public class PoliticianComparisonActivity extends AppCompatActivity
         tvParty.setText(politician.getPolitician_party());
 
         String url = politician.getPolitician_image_url();
-        if (url != null && !url.isEmpty()) {
-            Glide.with(this).load(url).into(ivImage);
-        } else {
+
+        if (url == null || url.trim().isEmpty()
+                || url.contains("Unavailable")
+                || url.contains("wikipedia.org/wiki")) {
+
             ivImage.setImageResource(R.drawable.user);
+
+        } else {
+
+            Glide.with(this)
+                    .load(url)
+                    .placeholder(R.drawable.user)
+                    .error(R.drawable.user)
+                    .circleCrop()
+                    .into(ivImage);
         }
+
         // Show metrics based on active tab
         if (currentActiveTab == tabOverview) {
 

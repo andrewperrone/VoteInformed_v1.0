@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.voteinformed.R;
 import com.example.voteinformed.data.entity.Politician;
 import com.example.voteinformed.ui.search.PoliticianSearchAdapter;
-import com.example.voteinformed.ui.search.SearchViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PoliticianSearchDialog extends DialogFragment {
@@ -29,11 +29,19 @@ public class PoliticianSearchDialog extends DialogFragment {
 
     private OnPoliticianSelectedListener callback;
     private TextInputEditText inputSearch;
-    private SearchViewModel viewModel;
+    private PoliticianSearchViewModel viewModel;
     private PoliticianSearchAdapter adapter;
 
-    public static PoliticianSearchDialog newInstance() {
-        return new PoliticianSearchDialog();
+    private List<Politician> fullList = new ArrayList<>();
+
+    private boolean showAllOnStart = false;
+
+    public static PoliticianSearchDialog newInstance(boolean showAllOnStart) {
+        PoliticianSearchDialog dialog = new PoliticianSearchDialog();
+        Bundle args = new Bundle();
+        args.putBoolean("show_all", showAllOnStart);
+        dialog.setArguments(args);
+        return dialog;
     }
 
     @Override
@@ -64,8 +72,22 @@ public class PoliticianSearchDialog extends DialogFragment {
         adapter = new PoliticianSearchAdapter(getContext(), this::onPoliticianClicked);
         recycler.setAdapter(adapter);
 
-        viewModel = new ViewModelProvider(this).get(SearchViewModel.class);
-        viewModel.getResults().observe(this, this::updateResults);
+        if (getArguments() != null) {
+            showAllOnStart = getArguments().getBoolean("show_all", false);
+        }
+
+        viewModel = new ViewModelProvider(this)
+                .get(PoliticianSearchViewModel.class);
+
+        viewModel.getAllPoliticians().observe(this, list -> {
+            fullList = list;
+
+            if (showAllOnStart) {
+                adapter.submitList(fullList);
+            } else {
+                adapter.submitList(new ArrayList<>());
+            }
+        });
 
         inputSearch.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH
@@ -75,18 +97,30 @@ public class PoliticianSearchDialog extends DialogFragment {
             }
             return false;
         });
-
-        performSearch();
     }
 
     private void performSearch() {
         String query = inputSearch.getText() == null ? "" :
-                inputSearch.getText().toString().trim();
-        viewModel.search(query);
-    }
+                inputSearch.getText().toString().trim().toLowerCase();
 
-    private void updateResults(List<Politician> list) {
-        adapter.submitList(list);
+        if (query.isEmpty()) {
+            if (showAllOnStart) {
+                adapter.submitList(fullList);
+            } else {
+                adapter.submitList(new ArrayList<>());
+            }
+            return;
+        }
+
+        List<Politician> filtered = new ArrayList<>();
+
+        for (Politician p : fullList) {
+            if (p.getPolitician_name().toLowerCase().contains(query)) {
+                filtered.add(p);
+            }
+        }
+
+        adapter.submitList(filtered);
     }
 
     private void onPoliticianClicked(Politician p) {

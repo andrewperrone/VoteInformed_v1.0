@@ -104,7 +104,6 @@ public interface Politician_Dao {
     @Query("SELECT * FROM politician WHERE politician_id = :id")
     LiveData<PoliticianWithArticles> getPoliticianWithArticles(int id);
 
-    @Query("SELECT * FROM politician ORDER BY RANDOM() LIMIT 4")
+    @Query(" SELECT * FROM politician WHERE politician_party IS NOT NULL AND politician_party != '' AND politician_party != 'Independent'ORDER BY RANDOM() LIMIT 4 ")
     LiveData<List<Politician>> getRandomPoliticians();
-
 }

@@ -1,5 +1,7 @@
 package com.example.voteinformed.ui.politician;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +24,18 @@ public class FeaturedPoliticianAdapter
     private List<Politician> politicians = new ArrayList<>();
 
     public void setPoliticians(List<Politician> list) {
-        politicians = list;
+        List<Politician> filtered = new ArrayList<>();
+        for (Politician p : list) {
+            if (p.getPolitician_party() != null &&
+                    !p.getPolitician_party().equalsIgnoreCase("Independent")) {
+
+                filtered.add(p);
+            }
+        }
+        politicians = filtered;
         notifyDataSetChanged();
     }
+
 
     @NonNull
     @Override
@@ -42,11 +53,32 @@ public class FeaturedPoliticianAdapter
         holder.party.setText(p.getPolitician_party());
         holder.bio.setText(p.getPolitician_background());
 
-        Glide.with(holder.itemView.getContext())
-                .load(p.getPolitician_image_url())
-                .circleCrop()
-                .placeholder(R.drawable.user)
-                .into(holder.image);
+        String imageUrl = p.getPolitician_image_url();
+
+        if (imageUrl == null || imageUrl.trim().isEmpty()
+                || imageUrl.contains("Unavailable")
+                || imageUrl.contains("wikipedia.org/wiki")) {
+
+            holder.image.setImageResource(R.drawable.user);
+
+        } else {
+
+            Glide.with(holder.itemView.getContext())
+                    .load(imageUrl)
+                    .placeholder(R.drawable.user)
+                    .error(R.drawable.user)
+                    .circleCrop()
+                    .into(holder.image);
+        }
+
+        holder.itemView.setOnClickListener(v -> {
+            Context context = v.getContext();
+
+            Intent intent = new Intent(context, PoliticianProfileActivity.class);
+            intent.putExtra("politician_id", p.getPolitician_id());
+
+            context.startActivity(intent);
+        });
     }
 
     @Override
