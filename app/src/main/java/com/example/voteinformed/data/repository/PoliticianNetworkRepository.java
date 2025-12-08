@@ -98,6 +98,7 @@ public class PoliticianNetworkRepository {
     }
 
     // Parser for NYC Council, uses Socrata array of arrays
+    // TODO Andrew has stashed incomplete changes to fix this
     private List<Politician> parseSocrataResponse(SocrataResponse response) {
         List<Politician> politicians = new ArrayList<>();
         List<List<Object>> dataRows = response.getData();

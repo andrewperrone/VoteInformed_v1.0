@@ -43,6 +43,9 @@ public interface Issue_Dao {
     @Query("SELECT * FROM issue")
     LiveData<List<Issue>> getAllIssues();
 
+    @Query("SELECT * FROM issue WHERE issue_id = :id")
+    List<Issue> getIssueByIdSync(int id);
+
     @Query("SELECT * FROM issue WHERE title LIKE '%' || :query || '%'")
     LiveData<List<Issue>> searchIssues(String query);
 

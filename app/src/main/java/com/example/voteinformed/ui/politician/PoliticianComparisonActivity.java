@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.Glide;
 import com.example.voteinformed.R;
+import com.example.voteinformed.data.dao.Politician_Dao;
 import com.example.voteinformed.data.entity.Politician;
 import com.example.voteinformed.data.repository.VoteInformed_Repository;
 import com.example.voteinformed.ui.elections.ElectionsActivity;

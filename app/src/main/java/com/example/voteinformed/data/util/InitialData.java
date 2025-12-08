@@ -5,6 +5,7 @@ import com.example.voteinformed.data.entity.Election;
 import com.example.voteinformed.data.entity.Issue;
 import com.example.voteinformed.data.entity.Politician;
 import com.example.voteinformed.data.entity.User;
+import com.example.voteinformed.data.entity.relation.Politician_Issue;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -82,7 +83,7 @@ public class InitialData {
 
         list.add(new Issue("Infrastructure", "[description]", "[type]", "[location]"));
 
-        list.add(new Issue("Transporation", "[description]", "[type]", "[location]"));
+        list.add(new Issue("Transportation", "[description]", "[type]", "[location]"));
 
         list.add(new Issue("Job", "[description]", "[type]", "[location]"));
 
@@ -105,7 +106,7 @@ public class InitialData {
         return list;
     }
 
-    private static final byte[] default_image = new byte[1];
+    //private static final byte[] default_image = new byte[1];
 
     public static List<Politician> getPoliticians()
     {

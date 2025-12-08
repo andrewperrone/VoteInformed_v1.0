@@ -38,7 +38,11 @@ import com.example.voteinformed.data.entity.relation.Article_Politician;
 import com.example.voteinformed.data.entity.relation.Politician_Election;
 import com.example.voteinformed.data.entity.relation.Politician_Issue;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executors;
+
+import com.example.voteinformed.data.util.DatabaseClient;
 import com.example.voteinformed.data.util.InitialData;
 
 @Database(
@@ -113,14 +117,24 @@ public abstract class VoteInformed_Database extends RoomDatabase {
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
 
-            // This task runs ONLY when the database is first created
+            // This runs ONLY when the database is first created
             Executors.newSingleThreadExecutor().execute(() -> {
-                Politician_Dao dao = INSTANCE.politicianDao();
+                Article_Dao articleDao = INSTANCE.articleDao();
+                //Election_Dao electionDao = INSTANCE.electionDao();
+                Issue_Dao issueDao = INSTANCE.issueDao();
+                Politician_Dao politicianDao = INSTANCE.politicianDao();
+                User_Dao userDao = INSTANCE.userDao();
 
-                // Iterate through the list and insert each politician individually
-                for (Politician p : InitialData.getPoliticians()) {
-                    dao.insert(p);
-                }
+                articleDao.insertAll(InitialData.getArticles());
+                //electionDao.insertAll(InitialData.getElections()); //TODO NO INITIAL DATA FOR ELECTIONS
+                issueDao.insertAll(InitialData.getIssues());
+                politicianDao.insertAll(InitialData.getPoliticians());
+                userDao.insertAll(InitialData.getUsers());
+
+                List<Politician_Issue> relations = new ArrayList<>();
+                relations = DatabaseClient.getInitialPoliticianIssueRelations();
+                // TODO Add check for if list is empty if code changes
+                politicianDao.linkAllPoliticianToIssue(relations);
             });
         }
     };
