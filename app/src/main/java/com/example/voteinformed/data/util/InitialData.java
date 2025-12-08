@@ -114,7 +114,7 @@ public class InitialData {
         list.add(new Politician(
                 "Alexandria Ocasio-Cortez",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/8/8a/AOC_Official_Portrait_116th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Alexandria_Ocasio-Cortez_Official_Portrait.jpg/500px-Alexandria_Ocasio-Cortez_Official_Portrait.jpg",
                 "202-225-3965",
                 "Born October 13, 1989, in The Bronx, New York. Ocasio-Cortez earned degrees from Boston University. In 2018, she defeated an incumbent in a major upset and became the youngest woman ever elected to the U.S. Congress. She is a progressive leader within the Democratic Party.",
                 "250 Cannon House Office Building\nWashington, DC 20515"
@@ -123,7 +123,7 @@ public class InitialData {
         list.add(new Politician(
                 "Eric Adams",
                 "Democratic",
-                "https://en.wikipedia.org/wiki/File:Eric_Adams_at_City_Hall_2023_(3x4_cropped).jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eric_Adams_at_City_Hall_2023_%283x4_cropped%29.jpg/500px-Eric_Adams_at_City_Hall_2023_%283x4_cropped%29.jpg",
                 "Email: mayoreric@cityhall.nyc.gov",
                 "Eric Adams graduated from Bayside High School. Adams earned a master's degree in public administration from Marist College and degrees from New York City Technical College and the John Jay College of Criminal Justice. His career experience includes working as a captain with the New York Police Department. Adams founded 100 Blacks in Law Enforcement Who Care",
                 "Mayor Eric Adams\nCity Hall\nNew York, NY 10007"
@@ -132,7 +132,7 @@ public class InitialData {
         list.add(new Politician(
                 "Charles E. Schumer",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/8/8d/Chuck_Schumer_official_photo.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Chuck_Schumer_official_photo_%283x4_cropped%29.jpg/500px-Chuck_Schumer_official_photo_%283x4_cropped%29.jpg",
                 "202-224-6542",
                 "Born November 23, 1950, in Brooklyn, New York. Schumer graduated from Harvard College and Harvard Law School. He served in the New York State Assembly and later in the U.S. House of Representatives from 1981 to 1999. Since 1999, he has served as U.S. Senator from New York. He became Senate Minority Leader in 2017 and Senate Majority Leader in 2021.",
                 "322 Hart Senate Office Building\nWashington, DC 20510"
@@ -141,7 +141,7 @@ public class InitialData {
         list.add(new Politician(
                 "Kathy Hochul",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/4/41/Kathy_Hochul_2022.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Kathy_Hochul_March_2024.jpg/500px-Kathy_Hochul_March_2024.jpg",
                 "518-474-8390",
                 "Hochul was born in Buffalo, New York. She received a B.A. from Syracuse University in 1980 and a J.D. from Catholic University in 1983. In addition to working as an attorney in private practice, she was an aide to Rep. John LaFalce (D) from 1984 to 1986 and to Sen. Daniel Patrick Moynihan (D) from 1986 to 1988. She served as Deputy Clerk of Erie County in New York from 2003 to 2007 and as Clerk of Erie County from 2007 to 2011.",
                 "The Honorable Kathy Hochul\nGovernor of New York State\nNYS State Capitol Building\nAlbany, NY 12224"
@@ -150,7 +150,7 @@ public class InitialData {
         list.add(new Politician(
                 "Kirsten Gillibrand",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/9/9a/Kirsten_Gillibrand%2C_official_photo%2C_116th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Kirsten_Gillibrand%2C_official_photo%2C_116th_Congress.jpg/500px-Kirsten_Gillibrand%2C_official_photo%2C_116th_Congress.jpg",
                 "DC Office Phone: (202) 224-4451 \n Official Website Contact: https://www.gillibrand.senate.gov/contact",
                 "Kirsten Elizabeth Gillibrand (born 1966) is the junior U.S. Senator from New York, serving since 2009. She previously represented New York's 20th congressional district in the House. She is known for her advocacy on military justice and sexual assault reforms.",
                 "U.S. Senator for New York \n D.C. Address: 478 Russell Senate Office Building, Washington, DC 20510"
@@ -168,7 +168,7 @@ public class InitialData {
         list.add(new Politician(
                 "Elise Marie Stefanik",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/b/ba/Elise_Stefanik%2C_115th_.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Elise_Stefanik%2C_115th_official_photo_%284x5_cropped%29.jpg/500px-Elise_Stefanik%2C_115th_official_photo_%284x5_cropped%29.jpg",
                 "(518) 561-2324",
                 "Elise Marie Stefanik (born July 2, 1984) has served as the U.S. representative for New York's 21st congressional district since 2015. She was chair of the House Republican Conference from 2021 to 2025, making her the fourth-ranking House Republican during that period.",
                 "Representative Elise Stefanik\n137 Margaret Street, Suite 100\nPlattsburgh, NY 12901"
@@ -186,7 +186,7 @@ public class InitialData {
         list.add(new Politician(
                 "Nicholas A. Langworthy",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/1/1f/Nick_langworthy_portrait_%28cropped%29.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Rep._Langworthy_Headshot_118.jpeg/500px-Rep._Langworthy_Headshot_118.jpeg",
                 "(202) 225-3161",
                 "Nicholas A. Langworthy (born February 27, 1981) is the U.S. Representative for New York's 23rd congressional district since January 3, 2023. A native of Jamestown, NY and a graduate of Niagara University, he previously served as chair of the New York Republican State Committee and as chair of the Erie County Republican Committee. He also founded a polling firm and has a background in political organizing and campaign management.",
                 "Representative Nicholas A. Langworthy\n422 Cannon House Office Building\nWashington, DC 20515"
@@ -195,12 +195,12 @@ public class InitialData {
         list.add(new Politician(
                 "Claudia Tenney",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/7/7c/Claudia_Tenney_official_portrait_118th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Rep._Claudia_Tenney_official_congressional_photo.jpg/500px-Rep._Claudia_Tenney_official_congressional_photo.jpg",
                 "(202) 225-3665",
                 "Claudia Tenney (born February 4, 1961) is the U.S. Representative for New York’s 24th congressional district (2023–present). She previously represented the 22nd district from 2017–2019 and 2021–2023, and before that served in the New York State Assembly from 2011–2016. She is an attorney by training and a member of the Republican Party.",
                 "Representative Claudia Tenney\n2230 Rayburn House Office Building\nWashington, DC 20515"
         ));
-
+// need more change below
         list.add(new Politician(
                 "Joseph D. Morelle",
                 "Democratic",
