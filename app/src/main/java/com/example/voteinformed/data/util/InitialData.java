@@ -200,7 +200,7 @@ public class InitialData {
                 "Claudia Tenney (born February 4, 1961) is the U.S. Representative for New York’s 24th congressional district (2023–present). She previously represented the 22nd district from 2017–2019 and 2021–2023, and before that served in the New York State Assembly from 2011–2016. She is an attorney by training and a member of the Republican Party.",
                 "Representative Claudia Tenney\n2230 Rayburn House Office Building\nWashington, DC 20515"
         ));
-// need more change below
+
         list.add(new Politician(
                 "Joseph D. Morelle",
                 "Democratic",
@@ -213,7 +213,7 @@ public class InitialData {
         list.add(new Politician(
                 "Timothy M. Kennedy",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/4/42/Tim_Kennedy_118th_Congress_official_portrait.jpg",
+                "https://en.wikipedia.org/wiki/File:Rep._Tim_Kennedy%27s_Official_Portrait.jpg",
                 "(202) 225-3306",
                 "Timothy M. Kennedy (born October 20, 1976) is the U.S. representative for New York’s 26th congressional district, elected in 2024 after serving in the New York State Senate from 2011 to 2024. A former occupational therapist from Buffalo, he has championed infrastructure, transit, and social-justice legislation throughout his career.",
                 "Representative Timothy M. Kennedy\n423 Cannon House Office Building\nWashington, DC 20515"
@@ -222,7 +222,7 @@ public class InitialData {
         list.add(new Politician(
                 "Anthony H. Palumbo",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Anthony_Palumbo_2021.jpg/250px-Anthony_Palumbo_2021.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/%2801-30-23%29_NYS_Senator_Anthony_Palumbo_%28cropped%29.jpg/500px-%2801-30-23%29_NYS_Senator_Anthony_Palumbo_%28cropped%29.jpg",
                 "(631) 461-9100",
                 "Anthony H. Palumbo (born September 14, 1970) is a New York State Senator representing the 1st Senate District since January 1, 2021. A former Suffolk County Assistant District Attorney and member of the New York State Assembly (2013–2020), he is known for his advocacy on public safety, water quality, housing affordability, and efforts to protect Long Island’s environment and small-town character.",
                 "Senator Anthony H. Palumbo\n400 W. Main Street, Suite 201\nRiverhead, NY 11901"
@@ -231,7 +231,7 @@ public class InitialData {
         list.add(new Politician(
                 "Mario R. Mattera",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/Mario_Mattera_2022.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/New_York_State_Senator_Mario_Mattera_in_2022.jpg/477px-New_York_State_Senator_Mario_Mattera_in_2022.jpg",
                 "631-361-2154",
                 "Mario R. Mattera (born August 18, 1963) is a member of the New York State Senate, representing the 2nd district since 2021. A longtime union leader with Plumbers Local 200 and a resident of Smithtown/St. James, he has advocated for labor and local-community interests on behalf of his constituents.",
                 "Senator Mario R. Mattera\n180 East Main Street, Suite 210\nSmithtown, NY 11787"
@@ -240,7 +240,7 @@ public class InitialData {
         list.add(new Politician(
                 "Dean L. Murray",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Dean_Murray_2023.jpg/220px-Dean_Murray_2023.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/NY_Assemblyman_Dean_Murray_%286359035853%29_%28cropped%29.jpg/500px-NY_Assemblyman_Dean_Murray_%286359035853%29_%28cropped%29.jpg",
                 "631-360-3356",
                 "Dean L. Murray (born July 22, 1964) is a New York State Senator representing the 3rd Senate District (since 2023). Previously, he served in the New York State Assembly (2010–2012, 2015–2018), and before politics he worked in radio/TV news and founded a small-business advertising firm.",
                 "Senator Dean Murray\n90-B West Main Street\nPatchogue, NY 11772"
@@ -249,7 +249,7 @@ public class InitialData {
         list.add(new Politician(
                 "Monica R. Martinez",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Monica_Martinez_2023_photo.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Senator_Monica_Martinez.jpg/500px-Senator_Monica_Martinez.jpg",
                 "(518) 455-2765",
                 "Monica R. Martinez (born August 13, 1977) is a Salvadoran-American educator and politician serving as a New York State Senator for the 4th district. A former Suffolk County Legislator and assistant principal in Brentwood, NY, she has championed education, public safety, animal welfare, and support for working families. She chairs the Senate Committee on Local Government.",
                 "Senator Monica R. Martinez\nLegislative Office Building, Room 903\nAlbany, NY 12247\n\nDistrict Office:\n250 Veterans Highway, State Office Building, Room 3B-41-42\nHauppauge, NY 11788"
@@ -258,7 +258,7 @@ public class InitialData {
         list.add(new Politician(
                 "Steven D. Rhoads",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/8/8d/Steven_D._Rhoads_official_portrait.png",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/New_York_Senator_Steven_Rhoads_in_2023.jpg/500px-New_York_Senator_Steven_Rhoads_in_2023.jpg",
                 "518-455-3161",
                 "Steven D. Rhoads is the New York State Senator representing the 5th District since January 1, 2023. A former Nassau County Legislator and longtime volunteer firefighter and attorney for first responders, he focuses on public safety, property-tax relief, and support for law enforcement.",
                 "Senator Steven D. Rhoads\nRoom 513, Legislative Office Building\nAlbany, NY 12247\n\nDistrict Office:\n2900 Hempstead Turnpike, Suite 201\nLevittown, NY 11756"
@@ -267,7 +267,7 @@ public class InitialData {
         list.add(new Politician(
                 "Siela A. Bynoe",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Siela_Bynoe_2025_official_portrait.jpg/250px-Siela_Bynoe_2025_official_portrait.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/%2801-08-25%29_NYS_Senator_Siela_Bynoe_%28cropped%29.jpg/500px-%2801-08-25%29_NYS_Senator_Siela_Bynoe_%28cropped%29.jpg",
                 "(516) 739-1700",
                 "Siela A. Bynoe (born 1967/1968) is a New York State Senator representing the 6th district since January 1, 2025. A Long Island resident and former Nassau County Legislator, she is the first Black person to represent Long Island in the State Senate. A strong advocate for housing, education, and environmental issues, she previously served on the Westbury School Board and in the Nassau County Legislature.",
                 "Senator Siela A. Bynoe\n65 Hilton Avenue, Suite 230\nGarden City, NY 11530"
@@ -276,7 +276,7 @@ public class InitialData {
         list.add(new Politician(
                 "Jack M. Martins",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/7/7c/Jack_Martins_2024.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Jack_Martins_speaking_in_the_NY_Senate_%28cropped_2%29.jpg/500px-Jack_Martins_speaking_in_the_NY_Senate_%28cropped_2%29.jpg",
                 "(518) 455-2677",
                 "Jack M. Martins (born June 19, 1967) is a New York State Senator representing the 7th district. A former mayor of Mineola and attorney, he returned to the State Senate in 2023 after previously serving from 2011 to 2016. He has focused on fiscal discipline, local-government reform, and representing Long Island’s suburban interests.",
                 "Senator Jack M. Martins\nRoom 608, Legislative Office Building\nAlbany, NY 12247\n\nDistrict Office:\n173 Mineola Boulevard, Suite 201\nMineola, NY 11501"
@@ -285,7 +285,7 @@ public class InitialData {
         list.add(new Politician(
                 "Alexis Weik",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/0/0c/Alexis_Weik_official_state_senate_photo_2023.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/%2803-03-22%29_NYS_Senator_Alexis_Weik_%2851916392344%29_%28cropped%29.jpg/500px-%2803-03-22%29_NYS_Senator_Alexis_Weik_%2851916392344%29_%28cropped%29.jpg",
                 "(631) 665-2311",
                 "Alexis Weik (born September 17, 1972) is the New York State Senator for the 8th district, serving since 2023; she initially represented the 3rd district beginning in 2021. A lifelong Long Island resident raised in Ronkonkoma and Oakdale, she earned a BBA from Dowling College and previously served as Receiver of Taxes for the Town of Islip (2012–2020). As Senator, she emphasizes support for law enforcement, small business, fiscal restraint and public safety.",
                 "Senator Alexis Weik\n1 Corporate Drive, Suite GL-005\nBohemia, NY 11716"
@@ -294,7 +294,7 @@ public class InitialData {
         list.add(new Politician(
                 "Patricia M. Canzoneri-Fitzpatrick",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Patricia_Canzoneri-Fitzpatrick_2025.jpg/250px-Patricia_Canzoneri-Fitzpatrick_2025.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/PatriciaCanzoneriFitzpatrick1.jpg/500px-PatriciaCanzoneriFitzpatrick1.jpg",
                 "(516) 766-8383",
                 "Patricia M. Canzoneri-Fitzpatrick (born 1964/1965) is a member of the New York State Senate representing the 9th District since 2023. An attorney and small-business owner from Malverne, she previously served as a village trustee, Police Commissioner, Fire Commissioner, Deputy Mayor, and Budget Director in the Village of Malverne, and now focuses on public safety, fiscal responsibility, and constituent services for Nassau County.",
                 "Senator Patricia M. Canzoneri-Fitzpatrick\n265 E. Merrick Road, Suite 101\nValley Stream, NY 11580"
@@ -303,7 +303,7 @@ public class InitialData {
         list.add(new Politician(
                 "James Sanders Jr.",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/James_Sanders_Jr_official_photo.jpg/250px-James_Sanders_Jr_official_photo.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/%2806-19-19%29_NY_State_Senator_James_Sanders_Jr._during_Senate_Session_at_the_NY_State_Capitol%2C_Albany_NY_%28cropped%29.jpg/500px-%2806-19-19%29_NY_State_Senator_James_Sanders_Jr._during_Senate_Session_at_the_NY_State_Capitol%2C_Albany_NY_%28cropped%29.jpg",
                 "718-523-3069",
                 "James Sanders Jr. (born August 14, 1957) is a New York State Senator representing the 10th district since 2013. A Marine veteran and longtime public servant from Far Rockaway, Queens, he previously served on the New York City Council and advocates for economic equity, social justice, and community development. He chairs the Senate Committee on Banks.",
                 "Senator James Sanders Jr.\n142-01 Rockaway Boulevard\nSouth Ozone Park, NY 11436"
@@ -312,7 +312,7 @@ public class InitialData {
         list.add(new Politician(
                 "Toby Ann Stavisky",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Toby_Ann_Stavisky_2019_portrait.jpg/250px-Toby_Ann_Stavisky_2019_portrait.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/%2801-27-25%29NYS_Senator_Toby_Ann_Stavisky_%28cropped%29.jpg/500px-%2801-27-25%29NYS_Senator_Toby_Ann_Stavisky_%28cropped%29.jpg",
                 "(518) 455-3461",
                 "Toby Ann Stavisky (born June 26, 1939) is a member of the New York State Senate representing the 11th district (serving since 1999). She chairs the Senate Higher Education Committee and has a long career in public service after previously working as a social-studies teacher.",
                 "Senator Toby Ann Stavisky\nAlbany Office: 172 State Street, Capitol Building, Room 430\nAlbany, NY 12247\n\nDistrict Office: 134-01 20th Avenue, 2nd Floor\nCollege Point, NY 11356"
@@ -321,7 +321,7 @@ public class InitialData {
         list.add(new Politician(
                 "Michael N. Gianaris",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/0/07/Michael_N._Gianaris.jpeg\n",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/%2805-22-24%29_NY_Senate_Deputy_Majority_Leader_Michael_Gianaris_%2853739992271%29_%28cropped%29.jpg/500px-%2805-22-24%29_NY_Senate_Deputy_Majority_Leader_Michael_Gianaris_%2853739992271%29_%28cropped%29.jpg",
                 "(518) 455-3486",
                 "Michael N. Gianaris (born April 23, 1970) is a New York State Senator representing the 12th Senate District since 2011. He has served as Deputy Majority Leader of the New York State Senate since 2019. A former Assembly member (2001–2010), Gianaris is an attorney from Queens and a longtime advocate for tenants’ rights, criminal justice reform, and responsible economic development.",
                 "Senator Michael N. Gianaris\nCapitol Building, Room 427\nAlbany, NY 12247\n\nDistrict Office:\n31-19 Newtown Avenue, Suite 402\nAstoria, NY 11102"
@@ -330,7 +330,7 @@ public class InitialData {
         list.add(new Politician(
                 "Jessica Ramos",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jessica_Ramos_2023.jpg/250px-Jessica_Ramos_2023.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/%2803-02-20%29NYS_Senator_Jessica_Ramos_%28cropped%29.jpg/500px-%2803-02-20%29NYS_Senator_Jessica_Ramos_%28cropped%29.jpg",
                 "(718) 205-3881",
                 "Jessica Ramos (born June 27, 1985) is a New York State Senator representing District 13 (Queens) since 2019. A daughter of Colombian immigrants, she was raised in Astoria, Queens, and previously worked as communications director for Latino media at New York City Hall. She has made labor rights, tenants’ rights, and immigrant advocacy cornerstones of her political platform.",
                 "Senator Jessica Ramos\n74-09 37th Avenue, Suite 302\nJackson Heights, NY 11372"
@@ -339,7 +339,7 @@ public class InitialData {
         list.add(new Politician(
                 "Leroy G. Comrie, Jr.",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Leroy_Comrie_official_portrait.jpg/250px-Leroy_Comrie_official_portrait.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Leroy_Garcia_2020.JPG/500px-Leroy_Garcia_2020.JPG",
                 "(718) 765-6359",
                 "Leroy G. Comrie, Jr. (born August 10, 1958) is a New York State Senator representing the 14th District since January 1, 2015. A former New York City Council Member (2002–2013), he represents Queens neighborhoods including Jamaica, Hollis, Kew Gardens Hills, St. Albans and others, and emphasizes investments in education, housing, and community development.",
                 "Senator Leroy G. Comrie\nDistrict Office: 113-43 Farmers Boulevard\nSt. Albans, NY 11412\nAlbany Office: Legislative Office Building, Room 913\nAlbany, NY 12247"
@@ -348,7 +348,7 @@ public class InitialData {
         list.add(new Politician(
                 "Joseph P. Addabbo Jr.",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Joseph_Addabbo_Jr_2025.jpg/250px-Joseph_Addabbo_Jr_2025.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%2803-11-25%29_NYS_Senator_Joe_Addabbo_%28cropped%29.jpg/500px-%2803-11-25%29_NYS_Senator_Joe_Addabbo_%28cropped%29.jpg",
                 "(718) 738-1111",
                 "Joseph P. Addabbo Jr. (born May 13, 1964) is a New York State Senator representing the 15th District (Queens) since 2009. A Democrat and former New York City Council member, he chairs the Senate Racing, Gaming and Wagering Committee and represents neighborhoods including Forest Hills, Woodhaven, Ozone Park, Glendale, Rego Park, Richmond Hill, Middle Village, and surrounding areas.",
                 "Senator Joseph P. Addabbo Jr.\n84-16 Jamaica Avenue\nWoodhaven, NY 11421\n\nAlbany Office:\n188 State Street, Room 811\nLegislative Office Building\nAlbany, NY 12247"
@@ -357,7 +357,7 @@ public class InitialData {
         list.add(new Politician(
                 "John C. Liu",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/John_Liu_portrait_2023.jpg/250px-John_Liu_portrait_2023.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/%2806-14-19%29_NY_State_Senator_John_Liu_during_Senate_Session_at_the_NY_State_Capitol%2C_Albany_NY_%28cropped%29.jpg/500px-%2806-14-19%29_NY_State_Senator_John_Liu_during_Senate_Session_at_the_NY_State_Capitol%2C_Albany_NY_%28cropped%29.jpg",
                 "718-765-6675",
                 "John C. Liu (born January 8, 1967 in Taiwan) is a New York State Senator representing the 16th district (northeast Queens). He previously served as New York City Comptroller (2010–2013) and as New York City Councilmember (2002–2009), and is known for his work on municipal finance, education, immigrant rights, and fiscal transparency.",
                 "Senator John C. Liu\nRoom 915, Legislative Office Building\nAlbany, NY 12247\n\nDistrict Office:\n38-50 Bell Boulevard, Suite C\nBayside, NY 11361"
@@ -366,7 +366,7 @@ public class InitialData {
         list.add(new Politician(
                 "Steve Chan",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/5/5b/Steve_Chan_2025.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/d/d4/%E8%A9%B9%E5%95%9F%E8%B3%A2.jpg",
                 "(718) 333-0311",
                 "Steve Chan (born May 13, 1966) is a New York State Senator representing District 17 (since January 1, 2025). A former U.S. Marine, NYPD sergeant, small-business owner and Brooklyn resident since childhood, he is the first Asian-American Republican elected to the New York State Senate — winning a seat in South Brooklyn after defeating the incumbent in 2024. He advocates for public safety, education support, and fiscal responsibility.",
                 "Senator Steve Chan\n6605 Fort Hamilton Parkway\nBrooklyn, NY 11219\n\nAlbany Office:\nLegislative Office Building, Room 615\nAlbany, NY 12247"
@@ -375,7 +375,7 @@ public class InitialData {
         list.add(new Politician(
                 "Julia Salazar",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Julia_Salazar_2019.jpg/250px-Julia_Salazar_2019.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Julia_Salazar%2C_2019_%28cropped%29.jpg/500px-Julia_Salazar%2C_2019_%28cropped%29.jpg",
                 "(718) 573-1726",
                 "Julia Salazar (born December 30, 1990) is the New York State Senator for the 18th district (since 2019). A former community organizer and member of the Democratic Socialists of America, she represents much of northern Brooklyn — including Bushwick — and has advocated strongly for tenant protections, criminal-justice reform, climate justice, and social equity. She previously worked with grassroots organizations such as Jews for Racial & Economic Justice before her election.",
                 "Senator Julia Salazar\nDistrict Office:\n212 Evergreen Avenue\nBrooklyn, NY 11221\n\nAlbany Office:\nRoom 514, State Capitol Building\n172 State Street\nAlbany, NY 12247"
@@ -384,7 +384,7 @@ public class InitialData {
         list.add(new Politician(
                 "Antonio Delgado",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/9/97/Antonio_Delgado_Lt._Governor.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/LG_Antonio_Delgado_Portrait.jpg/500px-LG_Antonio_Delgado_Portrait.jpg",
                 "518-474-8390",
                 "Born April 16, 1954, in Mineola, New York. DiNapoli attended Hofstra University and Long Island University. He served in the New York State Assembly for over 20 years, representing Great Neck beginning at age 24. In 2007, he was appointed New York State Comptroller. As Comptroller, he oversees the state’s $250+ billion pension fund and serves as New York’s chief fiscal officer.",
                 "Executive Offices Capitol\nAlbany NY 12224"
@@ -393,7 +393,7 @@ public class InitialData {
         list.add(new Politician(
                 "Thomas P. DiNapoli",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/3/3c/Thomas_DiNapoli.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/TPD%27s_Headshot_%28cropped%29.jpg/500px-TPD%27s_Headshot_%28cropped%29.jpg",
                 "518-474-4044",
                 "New York State Comptroller since 2007. Previously served in the New York State Assembly for 20 years. Oversees the state's financial operations and pension fund.",
                 "110 State Street\nAlbany NY 12207"
@@ -402,7 +402,7 @@ public class InitialData {
         list.add(new Politician(
                 "Letitia A. James",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/9/9f/Letitia_James.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/7/75/Letitia_James_Interview_Feb_2020.png",
                 "1-800-771-7755",
                 "Born October 18, 1958, in Brooklyn, New York. James earned her B.A. from Lehman College and her J.D. from Howard University School of Law. She began her career as a public defender and later served on the New York City Council. From 2013 to 2018, she served as New York City Public Advocate. In 2018, she was elected Attorney General of New York, becoming the first woman and first African American to hold the office.",
                 "Executive Offices Capitol\nAlbany NY 12224"
@@ -411,7 +411,7 @@ public class InitialData {
         list.add(new Politician(
                 "Nicholas J. LaLota",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/0/03/Nick_LaLota_118th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Nick_lalota_portrait.jpg/500px-Nick_lalota_portrait.jpg",
                 "202-225-3826",
                 "Born June 23, 1978. LaLota served as a U.S. Navy officer and intelligence officer. He later worked as Chief of Staff to the Suffolk County Legislature. In 2022, he was elected to represent New York’s 1st Congressional District. His priorities include veterans’ affairs, national security, and Long Island infrastructure.",
                 "122 Cannon House Office Building\nWashington, DC 20515"
@@ -420,7 +420,7 @@ public class InitialData {
         list.add(new Politician(
                 "Andrew R. Garbarino",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/0/0c/Andrew_Garbarino_117th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Andrew_Garbarino_117th_U.S_Congress.jpg/500px-Andrew_Garbarino_117th_U.S_Congress.jpg",
                 "202-225-7896",
                 "Born September 27, 1984, in New York. Garbarino earned a law degree from Touro College. He served in the New York State Assembly from 2013 to 2020 representing Long Island. In 2020, he was elected to the U.S. House of Representatives for New York’s 2nd Congressional District.",
                 "2344 Rayburn House Office Building\nWashington, DC 20515"
@@ -429,7 +429,7 @@ public class InitialData {
         list.add(new Politician(
                 "Thomas R. Suozzi",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tom_Suozzi_official_portrait_118th_Congress.jpg/800px-Tom_Suozzi_official_portrait_118th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/TomSuozzi118thCongress.jpg/500px-TomSuozzi118thCongress.jpg",
                 "202-225-3335",
                 "Born August 31, 1962, in Glen Cove, New York. Suozzi served as Mayor of Glen Cove and later as Nassau County Executive from 2002 to 2009. He served in Congress from 2017 to 2023 and returned to Congress in 2024 after winning a special election. He is known for bipartisan problem-solving and economic policy.",
                 "203 Cannon House Office Building\nWashington, DC 20515"
@@ -438,8 +438,7 @@ public class InitialData {
         list.add(new Politician(
                 "Laura A. Gillen",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Laura_Gillen_119th_Congress.jpg/800px-Laura_Gillen_119th_Congress.jpg",
-                "202-225-5516",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Gillen_Laura_119th_Congress_%28cropped2%29.jpg/500px-Gillen_Laura_119th_Congress_%28cropped2%29.jpg",               "202-225-5516",
                 "Gillen served as Hempstead Town Supervisor from 2018 to 2020. She focused on local infrastructure, environmental protection, and municipal reform. She was elected to Congress representing New York’s 4th District and advocates for coastal protection, housing reform, and public safety.",
                 "428 Cannon House Office Building\nWashington, DC 20515"
         ));
@@ -447,7 +446,7 @@ public class InitialData {
         list.add(new Politician(
                 "Gregory W. Meeks",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/2/2f/Gregory_Meeks_113th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Gregory_Meeks%2C_official_portrait%2C_115th_congress_%283x4_cropped%29.jpg/500px-Gregory_Meeks%2C_official_portrait%2C_115th_congress_%283x4_cropped%29.jpg",
                 "202-225-3461",
                 "Born September 25, 1953, in Harlem, New York. Meeks earned degrees from Adelphi University and Howard University School of Law. He has served in the U.S. House of Representatives since 1998. He previously served as Chair of the House Foreign Affairs Committee.",
                 "2310 Rayburn House Office Building\nWashington, DC 20515"
@@ -456,7 +455,7 @@ public class InitialData {
         list.add(new Politician(
                 "Grace Meng",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/6/61/Grace_Meng_113th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Grace_Meng_Official_Congressional_Photo.jpg/500px-Grace_Meng_Official_Congressional_Photo.jpg",
                 "202-225-2601",
                 "Born March 28, 1953, in Puerto Rico. Velázquez holds a Ph.D. in Political Science. She has represented parts of Brooklyn and Manhattan in Congress since 1993. She was the first Puerto Rican woman elected to Congress and is known for her work on small business policy.",
                 "2468 Rayburn House Office Building\nWashington, DC 20515"
@@ -465,7 +464,7 @@ public class InitialData {
         list.add(new Politician(
                 "Nydia M. Velazquez",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/e/eb/Nydia_Velazquez%2C_official_photo%2C_113th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Nydia_Vel%C3%A1zquez_official_portrait.jpg/500px-Nydia_Vel%C3%A1zquez_official_portrait.jpg",
                 "202-225-2361",
                 "Born August 4, 1970, in Brooklyn, New York. Jeffries earned degrees from Binghamton University, Georgetown University, and NYU School of Law. He served in the New York State Assembly before being elected to Congress in 2012. In 2023, he became House Minority Leader.",
                 "2302 Rayburn House Office Building\nWashington, DC 20515"
@@ -474,7 +473,7 @@ public class InitialData {
         list.add(new Politician(
                 "Hakeem S. Jeffries",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/4/4c/Hakeem_Jeffries_117th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Rep-Hakeem-Jeffries-Official-Portrait_%28cropped%29.jpg/500px-Rep-Hakeem-Jeffries-Official-Portrait_%28cropped%29.jpg",
                 "202-225-5936",
                 "Born November 21, 1964, in Brooklyn, New York. Clarke previously served on the New York City Council. She has represented New York’s 9th District in Congress since 2007, focusing on immigration reform and technology policy.",
                 "2267 Rayburn House Office Building\nWashington, DC 20515"
@@ -483,7 +482,7 @@ public class InitialData {
         list.add(new Politician(
                 "Yvette D. Clarke",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/1/16/Yvette_Clarke%2C_Official_Photograph%2C_113th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Yvette_Clarke_official_photo.jpg/500px-Yvette_Clarke_official_photo.jpg",
                 "202-225-6231",
                 "Born February 26, 1976. Goldman served as a federal prosecutor in the Southern District of New York. He was lead counsel for House Democrats during the first impeachment trial of President Donald Trump. He was elected to Congress in 2022 representing New York’s 10th District.",
                 "2058 Rayburn House Office Building\nWashington, DC 20515"
@@ -492,7 +491,7 @@ public class InitialData {
         list.add(new Politician(
                 "Daniel Goldman",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Daniel_Goldman%2C_Official_Portrait%2C_118th_Congress.jpg/800px-Daniel_Goldman%2C_Official_Portrait%2C_118th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Daniel_Goldman_Portrait.jpg/500px-Daniel_Goldman_Portrait.jpg",
                 "202-225-7944",
                 "Born November 11, 1980, in New York City. Malliotakis served in the New York State Assembly from 2011 to 2020. In 2020, she was elected to Congress representing Staten Island and parts of Brooklyn.",
                 "245 Cannon House Office Building\nWashington, DC 20515"
@@ -501,7 +500,7 @@ public class InitialData {
         list.add(new Politician(
                 "Nicole Malliotakis",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/3/3f/Nicole_Malliotakis_official_photo.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Congresswoman_Nicole_Malliotakis.jpg/500px-Congresswoman_Nicole_Malliotakis.jpg",
                 "202-225-3371",
                 "Born November 11, 1980, in New York City. Malliotakis served in the New York State Assembly from 2011 to 2020. In 2020, she was elected to Congress representing Staten Island and parts of Brooklyn.",
                 "1124 Longworth House Office Building\nWashington, DC 20515"
@@ -510,7 +509,7 @@ public class InitialData {
         list.add(new Politician(
                 "Jerrold L. Nadler",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/1/1a/Jerrold_Nadler%2C_official_photo%2C_113th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Jerry_Nadler_116th_Congress_official_portrait_%28cropped%29.jpg/500px-Jerry_Nadler_116th_Congress_official_portrait_%28cropped%29.jpg",
                 "202-225-5635",
                 "Born June 13, 1947, in Brooklyn, New York. Nadler earned his law degree from Fordham University. He has served in Congress since 1992. He was Chairman of the House Judiciary Committee during the first impeachment of Donald Trump.",
                 "2132 Rayburn House Office Building\nWashington, DC 20515"
@@ -519,7 +518,7 @@ public class InitialData {
         list.add(new Politician(
                 "Adriano Espaillat",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/3/33/Adriano_Espaillat_official_photo.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Rep._Adriano_Espaillat_117th_Official_Photo.jpg/500px-Rep._Adriano_Espaillat_117th_Official_Photo.jpg",
                 "202-225-4365",
                 "Born September 27, 1954, in the Dominican Republic. He immigrated to the U.S. as a child. Espaillat served in the New York State Senate before being elected to Congress in 2016. He became the first Dominican-American member of Congress.",
                 "2332 Rayburn House Office Building\nWashington, DC 20515"
@@ -528,7 +527,7 @@ public class InitialData {
         list.add(new Politician(
                 "Ritchie Torres",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/1/1b/Ritchie_Torres_117th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Ritchie_Torres_117th_U.S_Congress.jpg/500px-Ritchie_Torres_117th_U.S_Congress.jpg",
                 "202-225-4361",
                 "Born November 22, 1953. Latimer served in the New York State Assembly, State Senate, and as Westchester County Executive from 2018 to 2024 before being elected to Congress.",
                 "1414 Longworth House Office Building\nWashington, DC 20515"
@@ -537,7 +536,7 @@ public class InitialData {
         list.add(new Politician(
                 "George S. Latimer",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/George_Latimer_2022.jpg/800px-George_Latimer_2022.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Latimer_George_119th_Congress_2.jpg/500px-Latimer_George_119th_Congress_2.jpg",
                 "202-225-2464",
                 "Born November 22, 1953. Latimer served in the New York State Assembly, State Senate, and as Westchester County Executive from 2018 to 2024 before being elected to Congress.",
                 "1507 Longworth House Office Building\nWashington, DC 20515"
@@ -546,7 +545,7 @@ public class InitialData {
         list.add(new Politician(
                 "Mike Lawler",
                 "Republican",
-                "https://upload.wikimedia.org/wikipedia/commons/6/65/Mike_Lawler_118th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Rep._Mike_Lawler_official_photo.jpg/500px-Rep._Mike_Lawler_official_photo.jpg",
                 "202-225-6506",
                 "Born September 8, 1986. Lawler served in the New York State Assembly before being elected to Congress in 2022. He represents parts of Rockland and Westchester counties.",
                 "324 Cannon House Office Building\nWashington, DC 20515"
@@ -555,7 +554,7 @@ public class InitialData {
         list.add(new Politician(
                 "Pat Ryan",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/8/8b/Pat_Ryan_117th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Pat_Ryan_117th_Congress_portrait.jpeg/500px-Pat_Ryan_117th_Congress_portrait.jpeg",
                 "202-225-5614",
                 "Born March 20, 1982. Ryan served as Ulster County Executive and previously worked in veterans’ services. He won a special election in 2022 to enter Congress.",
                 "1708 Longworth House Office Building\nWashington, DC 20515"
@@ -564,7 +563,7 @@ public class InitialData {
         list.add(new Politician(
                 "Josh Riley",
                 "Democratic",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Josh_Riley_119th_Congress.jpg/800px-Josh_Riley_119th_Congress.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Rep._Josh_Riley_official_photo%2C_119th_Congress.jpg/500px-Rep._Josh_Riley_official_photo%2C_119th_Congress.jpg",
                 "202-225-5441",
                 "Riley is an attorney and former aide to Senate Majority Leader Chuck Schumer. He focuses on rural economic development, agriculture, healthcare, and infrastructure in the Hudson Valley and Southern Tier.",
                 "128 Cannon House Office Building\nWashington, DC 20515"
