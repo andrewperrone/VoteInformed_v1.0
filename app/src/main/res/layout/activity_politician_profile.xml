@@ -114,7 +114,7 @@
                     android:layout_marginBottom="16dp"
                     android:orientation="horizontal"
                     android:background="@drawable/rounded_box"
-                    android:weightSum="3">
+                    android:weightSum="2">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/tabAbout"
@@ -122,15 +122,6 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="About"
-                        android:textAllCaps="false"
-                        android:textColor="@color/text_primary" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/tabPolicy"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="Policy"
                         android:textAllCaps="false"
                         android:textColor="@color/text_primary" />
 
@@ -161,24 +152,6 @@
                             android:id="@+id/tvAboutContent"
                             android:padding="24dp"
                             android:text="Biography loading..."
-                            android:textColor="@color/text_primary"
-                            android:textSize="15sp"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"/>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/sectionPolicy"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        app:cardCornerRadius="16dp"
-                        app:cardBackgroundColor="#F5F5F5">
-
-                        <TextView
-                            android:id="@+id/tvPolicyContent"
-                            android:padding="24dp"
-                            android:text="Policy details not available."
                             android:textColor="@color/text_primary"
                             android:textSize="15sp"
                             android:layout_height="wrap_content"

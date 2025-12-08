@@ -37,8 +37,11 @@ public class PoliticianProfileActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
 
-    private MaterialButton tabAbout, tabPolicy, tabContact;
-    private CardView sectionAbout, sectionPolicy, sectionContact;
+    // Removed tabPolicy
+    private MaterialButton tabAbout, tabContact;
+    // Removed sectionPolicy
+    private CardView sectionAbout, sectionContact;
+
     private CardView currentSection;
     private MaterialButton currentActiveTab;
 
@@ -143,11 +146,11 @@ public class PoliticianProfileActivity extends AppCompatActivity {
         fabCompare.setOnClickListener(v -> onCompareClicked());
 
         tabAbout = findViewById(R.id.tabAbout);
-        tabPolicy = findViewById(R.id.tabPolicy);
+        // tabPolicy = findViewById(R.id.tabPolicy);
         tabContact = findViewById(R.id.tabContact);
 
         sectionAbout = findViewById(R.id.sectionAbout);
-        sectionPolicy = findViewById(R.id.sectionPolicy);
+        // sectionPolicy = findViewById(R.id.sectionPolicy);
         sectionContact = findViewById(R.id.sectionContact);
 
         imgProfile = findViewById(R.id.imgPoliticianProfile);
@@ -161,7 +164,7 @@ public class PoliticianProfileActivity extends AppCompatActivity {
         currentActiveTab = tabAbout;
 
         tabAbout.setOnClickListener(v -> switchSection(sectionAbout, tabAbout));
-        tabPolicy.setOnClickListener(v -> switchSection(sectionPolicy, tabPolicy));
+        // tabPolicy.setOnClickListener(v -> switchSection(sectionPolicy, tabPolicy));
         tabContact.setOnClickListener(v -> switchSection(sectionContact, tabContact));
     }
 
@@ -202,8 +205,11 @@ public class PoliticianProfileActivity extends AppCompatActivity {
 
         tabAbout.setBackgroundColor(blue);
         tabAbout.setTextColor(white);
-        tabPolicy.setBackgroundColor(gray);
-        tabPolicy.setTextColor(dark);
+
+
+        // tabPolicy.setBackgroundColor(gray);
+        // tabPolicy.setTextColor(dark);
+
         tabContact.setBackgroundColor(gray);
         tabContact.setTextColor(dark);
     }
@@ -301,7 +307,7 @@ public class PoliticianProfileActivity extends AppCompatActivity {
 
     private int getSectionIndex(CardView section) {
         if (section == sectionAbout) return 0;
-        if (section == sectionPolicy) return 1;
-        return 2;
+        // if (section == sectionPolicy) return 1;
+        return 1;
     }
 }
