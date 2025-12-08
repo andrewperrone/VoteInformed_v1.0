@@ -26,6 +26,7 @@ import com.example.voteinformed.data.entity.relation.ArticleWithPoliticians;
 import com.example.voteinformed.data.entity.relation.ElectionWithPoliticians;
 import com.example.voteinformed.data.entity.relation.PoliticianWithElections;
 import com.example.voteinformed.data.entity.relation.PoliticianWithIssues;
+import com.example.voteinformed.data.entity.relation.Politician_Issue;
 import com.example.voteinformed.data.entity.relation.UserWithArticles;
 import com.example.voteinformed.data.entity.relation.UserWithElections;
 import com.example.voteinformed.data.entity.relation.UserWithIssues;
@@ -203,6 +204,19 @@ public class VoteInformed_Repository {
     }
 
     //Politician With
+
+    public void linkPoliticianToIssue(int politicianId, int issueId, String opinion) {
+        executor.execute(() -> politicianDao.linkPoliticianToIssue(new Politician_Issue(politicianId, issueId, opinion)));
+    }
+
+    public void unlinkPoliticianFromIssue(int politicianId, int issueId) {
+        executor.execute(() -> politicianDao.unlinkPoliticianFromIssue(politicianId, issueId));
+    }
+
+    public LiveData<List<Issue>> searchIssuesWithPolitician(int politicianId, String query) {
+        return politicianDao.searchIssuesWithPolitician(politicianId, query);
+    }
+
     public LiveData<PoliticianWithIssues> getPoliticianWithIssues(int id) {
         return politicianDao.getPoliticianWithIssues(id);
     }
