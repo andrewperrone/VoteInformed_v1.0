@@ -124,39 +124,6 @@
                     android:nestedScrollingEnabled="false"
                     android:layout_marginBottom="24dp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Find Your Polling Location"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:paddingBottom="8dp"/>
-
-                <EditText
-                    android:id="@+id/address_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter your registered address"
-                    android:inputType="textPostalAddress"
-                    android:background="@drawable/rounded_box"
-                    android:padding="12dp"
-                    android:layout_marginBottom="8dp"/>
-
-                <Button
-                    android:id="@+id/search_poll_site_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Search Poll Site"
-                    android:background="@drawable/rounded_button" />
-
-                <TextView
-                    android:id="@+id/poll_site_result"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:textSize="16sp"
-                    tools:text="Result: North High School, 123 Voting Way, Anytown, CA 12345. Hours: 7:00 AM - 8:00 PM."/>
-
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
