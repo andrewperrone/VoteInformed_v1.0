@@ -24,9 +24,18 @@ public class FeaturedPoliticianAdapter
     private List<Politician> politicians = new ArrayList<>();
 
     public void setPoliticians(List<Politician> list) {
-        politicians = list;
+        List<Politician> filtered = new ArrayList<>();
+        for (Politician p : list) {
+            if (p.getPolitician_party() != null &&
+                    !p.getPolitician_party().equalsIgnoreCase("Independent")) {
+
+                filtered.add(p);
+            }
+        }
+        politicians = filtered;
         notifyDataSetChanged();
     }
+
 
     @NonNull
     @Override

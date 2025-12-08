@@ -143,7 +143,8 @@ public class PoliticianComparisonActivity extends AppCompatActivity
 
     private void openSearchDialog() {
         FragmentManager fm = getSupportFragmentManager();
-        PoliticianSearchDialog dialog = PoliticianSearchDialog.newInstance();
+        PoliticianSearchDialog dialog =
+                PoliticianSearchDialog.newInstance(true);
         dialog.show(fm, "PoliticianSearchDialog");
     }
 
